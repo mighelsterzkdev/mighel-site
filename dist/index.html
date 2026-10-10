@@ -13,7 +13,8 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v2')||'light'}catch{}</script>
+  <link rel="stylesheet" href="identity.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v3')||'light'}catch{}</script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -29,6 +30,8 @@
       <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
       <symbol id="menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
       <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
+      <symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14m-7-7v14"/></symbol>
       <symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.5-4.1-1.5-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.2-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .2 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol>
       <symbol id="twitch" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 2 2 6v15h5v3l4-3h4L22 14V2H4Zm16 11-4 4h-5l-4 3v-3H4V4h16v9Zm-5-6h2v6h-2V7Zm-5 0h2v6h-2V7Z"/></symbol>
       <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.3 22H2.1l8.3-9.5L2.7 2h6.5l4.6 6.9L18.9 2ZM17.9 20h1.7L8.2 3.9H6.4L17.9 20Z"/></symbol>
@@ -44,25 +47,32 @@
         <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#setup">Setup</a><a href="#redes">Redes</a>
       </nav>
       <div class="header-actions">
+        <button class="command-trigger" aria-label="Abrir atalhos" aria-haspopup="dialog"><svg class="icon"><use href="#search"/></svg><span>Atalhos</span><kbd>Ctrl K</kbd></button>
         <button class="icon-button theme-button" aria-label="Ativar tema escuro"><svg class="icon"><use href="#moon"/></svg></button>
-        <a class="button compact" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#github"/></svg><span>GitHub</span><svg class="icon"><use href="#up"/></svg></a>
         <button class="icon-button menu-button" aria-label="Abrir menu" aria-controls="navigation" aria-expanded="false"><svg class="icon"><use href="#menu"/></svg></button>
       </div>
     </div>
   </header>
   <main id="main">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-atmosphere" aria-hidden="true"></div>
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="hero-role">Desenvolvedor em Lua & Python</p>
-        <h1 id="hero-title"><span class="name-word">Mighel</span> <span class="name-word">Sterzk.</span></h1>
-        <p class="hero-description">Um pouco sobre mim,<br>o que desenvolvo e o que uso.</p>
+        <h1 id="hero-title"><span class="name-word">Mighel</span><br><span class="name-word">Sterzk<span class="name-dot">.</span></span></h1>
+        <p class="hero-description">Código, setup e um pouco de mim.<br>Bem-vindo ao meu canto da internet.</p>
         <div class="hero-actions">
-          <a class="button" href="#sobre">Conheça meu trabalho <svg class="icon"><use href="#down"/></svg></a>
-          <a class="button secondary" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">Abrir GitHub <svg class="icon"><use href="#up"/></svg></a>
+          <a class="button" href="#sobre">Conheça meu espaço <svg class="icon"><use href="#down"/></svg></a>
+          <a class="inline-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#github"/></svg> GitHub <svg class="icon"><use href="#up"/></svg></a>
         </div>
       </div>
-      <div class="hero-footer"><span>Lua · Python · Tecnologia</span><a href="#sobre">Explore <svg class="icon"><use href="#down"/></svg></a></div>
+      <nav class="hero-index" aria-label="Explore meu espaço">
+        <div class="index-heading"><span>Um pouco de mim.</span><span class="index-mark" aria-hidden="true">m/</span></div>
+        <p>Além do código,<br>tem todo o resto.</p>
+        <a href="#projetos"><span class="index-number">01</span><span>O que eu crio</span><svg class="icon"><use href="#up"/></svg></a>
+        <a href="#setup"><span class="index-number">02</span><span>O que eu uso</span><svg class="icon"><use href="#up"/></svg></a>
+        <a href="#redes"><span class="index-number">03</span><span>Onde me encontrar</span><svg class="icon"><use href="#up"/></svg></a>
+        <div class="index-bottom"><span>Lua</span><span>Python</span><svg class="icon"><use href="#code"/></svg></div>
+      </nav>
+      <div class="hero-footer"><span>Meu espaço pessoal</span><a href="#sobre">Role para explorar <svg class="icon"><use href="#down"/></svg></a></div>
     </section>
 
     <section class="section container about" id="sobre" aria-labelledby="about-title">
@@ -91,8 +101,15 @@
     <section class="section container projects" id="projetos" aria-labelledby="projects-title">
       <div class="section-heading"><div><h2 id="projects-title">O que estou criando.</h2><p>Projetos pessoais e experimentos com código.</p></div><a class="inline-link" href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">Ver repositórios <svg class="icon"><use href="#up"/></svg></a></div>
       <article class="project">
-        <a class="project-image" href="#inicio" aria-label="Ver o início do site pessoal"><img src="assets/site-preview.jpg" alt="Prévia deste site pessoal de Mighel Sterzk" loading="lazy" width="1101" height="872"></a>
-        <div class="project-description"><div><h3>Site pessoal</h3><span class="project-status">Você está aqui</span></div><p>Sobre mim, projetos, setup e redes. Tudo em um só lugar.</p><a class="icon-button project-arrow" href="#inicio" aria-label="Voltar ao início do site pessoal"><svg class="icon"><use href="#up"/></svg></a></div>
+        <button class="project-toggle" aria-expanded="false" aria-controls="project-details">
+          <span class="project-mark" aria-hidden="true"><svg class="icon"><use href="#code"/></svg></span>
+          <span class="project-summary"><span class="project-name">Meu site pessoal</span><span class="project-caption">Sobre mim, projetos, setup e conexões.</span></span>
+          <span class="project-status">Você está aqui</span><span class="project-expand"><svg class="icon"><use href="#plus"/></svg></span>
+        </button>
+        <div class="project-details" id="project-details" inert><div class="project-details-inner">
+          <div class="project-story"><h3>Um lugar com a minha cara.</h3><p>Meu ponto de encontro na internet. Aqui reúno o que programo, os equipamentos que uso e os links para me acompanhar.</p><button class="inline-link project-copy"><svg class="icon"><use href="#copy"/></svg> Copiar link do site</button></div>
+          <dl class="project-stack"><div><dt>Interface</dt><dd>HTML</dd></div><div><dt>Estilo</dt><dd>CSS</dd></div><div><dt>Interações</dt><dd>JavaScript</dd></div></dl>
+        </div></div>
       </article>
       <p class="project-note">Os próximos projetos publicados ficam no <a href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">meu GitHub <svg class="icon"><use href="#up"/></svg></a>.</p>
     </section>
@@ -132,6 +149,12 @@
     <button class="icon-button dialog-close" aria-label="Fechar equipamento"><svg class="icon"><use href="#close"/></svg></button>
     <div class="dialog-image"><img src="assets/mouse.png" alt="" id="gear-dialog-image" width="600" height="500"></div>
     <div class="dialog-content"><p id="gear-dialog-category"></p><h2 id="gear-dialog-title"></h2><p id="gear-dialog-detail"></p><a id="gear-dialog-link" class="button" href="https://www.logitechg.com/en-us/shop/p/pro-x3-superstrike-mouse" target="_blank" rel="noopener noreferrer">Página do fabricante <svg class="icon"><use href="#up"/></svg></a></div>
+  </dialog>
+  <dialog class="command-dialog" aria-label="Atalhos do site">
+    <div class="command-search"><svg class="icon"><use href="#search"/></svg><input id="command-search" type="search" role="combobox" aria-label="Buscar seção ou rede social" aria-expanded="true" aria-controls="command-results" aria-autocomplete="list" autocomplete="off" placeholder="Para onde vamos?"><button class="command-close" aria-label="Fechar atalhos"><kbd>Esc</kbd></button></div>
+    <div class="command-results" id="command-results" role="listbox" aria-label="Seções e redes"></div>
+    <p class="command-empty" hidden>Nenhum resultado. Tente “setup” ou “GitHub”.</p>
+    <div class="command-footer"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span></div>
   </dialog>
   <div class="toast" role="status" aria-live="polite"></div>
 </body>

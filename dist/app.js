@@ -5,13 +5,13 @@ function syncTheme() {
   const dark = document.documentElement.dataset.theme === 'dark';
   themeButton.setAttribute('aria-label', dark ? 'Ativar tema claro' : 'Ativar tema escuro');
   $('use', themeButton).setAttribute('href', dark ? '#sun' : '#moon');
-  $('meta[name="theme-color"]').content = dark ? '#151516' : '#fcfcfb';
+  $('meta[name="theme-color"]').content = dark ? '#141a16' : '#fafbf9';
 }
 syncTheme();
 themeButton.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('mighel-theme-v2', theme); } catch {}
+  try { localStorage.setItem('mighel-theme-v3', theme); } catch {}
   syncTheme();
 });
 const menuButton = $('.menu-button');
@@ -90,6 +90,103 @@ async function copyText(value, button, success) {
 }
 $('.copy-handle').addEventListener('click', event => copyText('@MighelSterzk', event.currentTarget, '@MighelSterzk copiado.'));
 $('.code-copy').addEventListener('click', event => copyText(profile[activeLanguage].raw, event.currentTarget, 'Código copiado.'));
+$('.project-copy').addEventListener('click', event => copyText('https://mighel-sterzk.mysticsage3.chatgpt.site', event.currentTarget, 'Link do site copiado.'));
+
+const projectToggle = $('.project-toggle');
+const projectDetails = $('#project-details');
+function setProjectOpen(open) {
+  projectToggle.setAttribute('aria-expanded', String(open));
+  $('.project').classList.toggle('is-open', open);
+  projectDetails.inert = !open;
+}
+projectToggle.addEventListener('click', () => setProjectOpen(projectToggle.getAttribute('aria-expanded') !== 'true'));
+$('.project').addEventListener('keydown', event => {
+  if (event.key === 'Escape' && projectToggle.getAttribute('aria-expanded') === 'true') {
+    setProjectOpen(false); projectToggle.focus();
+  }
+});
+
+const commandDialog = $('.command-dialog');
+const commandInput = $('#command-search');
+const commandResults = $('#command-results');
+const commands = [
+  { label: 'Sobre mim', detail: 'Lua, Python e meu perfil', icon: 'code', href: '#sobre', keywords: 'linguagens programador' },
+  { label: 'Projetos', detail: 'O que estou criando', icon: 'code', href: '#projetos', keywords: 'site trabalho' },
+  { label: 'Meu setup', detail: 'Mouse, teclado e headset', icon: 'menu', href: '#setup', keywords: 'perifericos logitech attack shark mchose' },
+  { label: 'Redes sociais', detail: 'Onde me encontrar', icon: 'up', href: '#redes', keywords: 'contato links' },
+  { label: 'GitHub', detail: '@mighelsterzkdev', icon: 'github', href: 'https://github.com/mighelsterzkdev', keywords: 'repositorios codigo' },
+  { label: 'Twitch', detail: '@sterzk', icon: 'twitch', href: 'https://www.twitch.tv/sterzk', keywords: 'stream live' },
+  { label: 'X', detail: '@MighelSterzk', icon: 'x', href: 'https://x.com/MighelSterzk', keywords: 'twitter contato' },
+  { label: 'YouTube', detail: '@MighelSterzk', icon: 'youtube', href: 'https://www.youtube.com/@MighelSterzk', keywords: 'videos' }
+];
+const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+let activeCommand = 0;
+let commandTrigger;
+function highlightCommand(index) {
+  const options = $$('.command-option');
+  if (!options.length) { commandInput.removeAttribute('aria-activedescendant'); return; }
+  activeCommand = (index + options.length) % options.length;
+  options.forEach((option, i) => option.setAttribute('aria-selected', String(i === activeCommand)));
+  commandInput.setAttribute('aria-activedescendant', options[activeCommand].id);
+  options[activeCommand].scrollIntoView({ block: 'nearest' });
+}
+function renderCommands() {
+  const query = normalize(commandInput.value.trim());
+  const matches = commands.filter(item => normalize(`${item.label} ${item.detail} ${item.keywords}`).includes(query));
+  commandResults.replaceChildren();
+  matches.forEach((item, index) => {
+    const link = document.createElement('a');
+    link.className = 'command-option'; link.id = `command-${index}`;
+    link.href = item.href; link.tabIndex = -1; link.setAttribute('role', 'option');
+    if (!item.href.startsWith('#')) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+    link.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#${item.icon}"/></svg><span>${item.label}<small>${item.detail}</small></span><svg class="icon" aria-hidden="true"><use href="#${item.href.startsWith('#') ? 'arrow' : 'up'}"/></svg>`;
+    link.addEventListener('pointermove', () => { if (activeCommand !== index) highlightCommand(index); });
+    link.addEventListener('click', () => {
+      commandDialog.close();
+      if (item.href.startsWith('#')) requestAnimationFrame(() => {
+        const heading = $(`${item.href} h2`);
+        heading.tabIndex = -1; heading.focus({ preventScroll: true });
+      });
+    });
+    commandResults.append(link);
+  });
+  $('.command-empty').hidden = matches.length > 0;
+  highlightCommand(0);
+}
+function openCommands() {
+  if (commandDialog.open || dialog.open) return;
+  commandTrigger = document.activeElement;
+  commandInput.value = '';
+  renderCommands();
+  closeMenu(); commandDialog.showModal(); commandInput.focus();
+}
+$('.command-trigger').addEventListener('click', openCommands);
+$('.command-close').addEventListener('click', () => commandDialog.close());
+commandInput.addEventListener('input', renderCommands);
+commandInput.addEventListener('keydown', event => {
+  if (['ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', 'Escape'].includes(event.key)) {
+    event.preventDefault();
+    if (event.key === 'ArrowDown') highlightCommand(activeCommand + 1);
+    if (event.key === 'ArrowUp') highlightCommand(activeCommand - 1);
+    if (event.key === 'Home') highlightCommand(0);
+    if (event.key === 'End') highlightCommand($$('.command-option').length - 1);
+    if (event.key === 'Enter') $$('.command-option')[activeCommand]?.click();
+    if (event.key === 'Escape') {
+      if (commandInput.value) { commandInput.value = ''; renderCommands(); }
+      else commandDialog.close();
+    }
+  }
+});
+document.addEventListener('keydown', event => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    event.preventDefault(); if (commandDialog.open) commandDialog.close(); else openCommands();
+  }
+});
+commandDialog.addEventListener('close', () => commandTrigger?.focus());
+commandDialog.addEventListener('click', event => {
+  const bounds = commandDialog.getBoundingClientRect();
+  if (event.target === commandDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) commandDialog.close();
+});
 
 const equipment = {
   mouse: { title: 'PRO X3 SUPERSTRIKE', category: 'Mouse · Logitech G', image: 'assets/mouse.png', alt: 'Logitech G PRO X3 SUPERSTRIKE preto', detail: 'Meu mouse, na cor preta.', url: 'https://www.logitechg.com/en-us/shop/p/pro-x3-superstrike-mouse' },
