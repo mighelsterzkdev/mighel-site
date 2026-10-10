@@ -18,7 +18,9 @@ Abra http://127.0.0.1:4173. Para publicar em qualquer hospedagem estática, envi
 - Layout, cores e tipografia: `dist/styles.css`.
 - Fonte e favicon: `dist/assets/`.
 
-O site não carrega JavaScript no navegador. Hover apenas sublinha links; não altera posição, escala ou fundo. A entrada usa um fade curto, desativado para quem prefere movimento reduzido.
+Página com fundo preto, etiquetas de Skills e Tools e barra de ícones fixa no rodapé. A barra abre início, GitHub, Twitch, X, YouTube e setup; o último botão alterna tema claro/escuro e salva a preferência localmente. JavaScript nativo apenas para o tema, sem dependências.
+
+Hover apenas sublinha os links de conteúdo ou mostra o nome dos ícones na barra; não altera posição ou escala. A entrada usa um fade curto, desativado para quem prefere movimento reduzido. A barra cabe em telas de 320 px e respeita a área segura inferior do celular.
 
 Teclado informado como Attack Shark X68, sem afirmar a versão HE ou Pro.
 

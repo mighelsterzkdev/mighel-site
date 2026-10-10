@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#141414">
+  <meta name="theme-color" content="#000000">
   <meta name="description" content="Mighel Sterzk. Programo em Lua e Python. Meu GitHub, setup e redes.">
   <meta property="og:title" content="Mighel Sterzk">
   <meta property="og:description" content="Lua, Python, meu setup e minhas redes.">
@@ -13,6 +13,8 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v6')==='light'?'light':'dark'}catch{}</script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.5-4.1-1.5-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.2-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .2 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol>
@@ -21,17 +23,16 @@
 <symbol id="youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M23 7a3.2 3.2 0 0 0-2.3-2.3C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.7.5A3.2 3.2 0 0 0 1 7C.5 8.9.5 12 .5 12s0 3.1.5 5a3.2 3.2 0 0 0 2.3 2.3c1.9.5 8.7.5 8.7.5s6.8 0 8.7-.5A3.2 3.2 0 0 0 23 17c.5-1.9.5-5 .5-5s0-3.1-.5-5ZM9.7 15.4V8.6l6 3.4-6 3.4Z"/></symbol></defs></svg>
   <a class="skip" href="#main">Pular para o conteúdo</a>
   <div class="page">
-    <header>
-      <nav aria-label="Navegação principal">
-        <a href="#projetos">Projetos</a>
-        <a href="#setup">Setup</a>
-        <a href="#redes">Redes</a>
-      </nav>
-    </header>
     <main id="main">
       <section class="intro" id="inicio" aria-labelledby="name">
         <h1 id="name">Mighel Sterzk</h1>
         <p>Programo em Lua e Python.</p>
+      </section>
+      <section class="content-section" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <ul class="tags" aria-label="Linguagens"><li>Lua</li><li>Python</li></ul>
+        <h3 class="tools-title">Tools</h3>
+        <ul class="tags" aria-label="Ferramentas"><li>GitHub</li><li>Codex</li></ul>
       </section>
       <section class="content-section" id="projetos" aria-labelledby="projects-title">
         <h2 id="projects-title">Projetos</h2>
@@ -59,5 +60,14 @@
       </section>
     </main>
   </div>
+  <nav class="dock" aria-label="Navegação principal">
+    <a href="#inicio" aria-label="Início" data-label="Início"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-8H9v8H4a1 1 0 0 1-1-1z"/></svg></a>
+    <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.3-4.3-2.2-6-2.7M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.7.9-1 2-1 3.5v4"/></svg></a>
+    <a href="https://www.twitch.tv/sterzk" target="_blank" rel="noopener noreferrer" aria-label="Twitch" data-label="Twitch"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h17v12l-5 5h-5l-4 3v-3H3V6zM9 7v6m6-6v6"/></svg></a>
+    <a href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer" aria-label="X" data-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 3 13 18h3L7 3H4Zm0 18 7-8m2-2 7-8"/></svg></a>
+    <a href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a>
+    <a href="#setup" aria-label="Setup" data-label="Setup"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4m-5 0h10"/></svg></a>
+    <button class="theme-toggle" type="button" aria-label="Ativar tema claro" data-label="Tema claro"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14a8 8 0 0 1-10-10A8 8 0 1 0 20 14Z"/></svg></button>
+  </nav>
 </body>
 </html>
