@@ -5,13 +5,13 @@ function syncTheme() {
   const dark = document.documentElement.dataset.theme === 'dark';
   themeButton.setAttribute('aria-label', dark ? 'Ativar tema claro' : 'Ativar tema escuro');
   $('use', themeButton).setAttribute('href', dark ? '#sun' : '#moon');
-  $('meta[name="theme-color"]').content = dark ? '#141a16' : '#fafbf9';
+  $('meta[name="theme-color"]').content = dark ? '#141414' : '#f5f5f5';
 }
 syncTheme();
 themeButton.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('mighel-theme-v3', theme); } catch {}
+  try { localStorage.setItem('mighel-theme-v4', theme); } catch {}
   syncTheme();
 });
 const menuButton = $('.menu-button');
@@ -44,17 +44,18 @@ const profile = {
     filename: 'sobre_mim.py', label: 'Python'
   }
 };
-let activeLanguage = 'lua';
+let activeLanguage;
 const codeTabs = $$('.code-tabs [role="tab"]');
 function selectCode(tab, focus = false) {
+  const previousLanguage = activeLanguage;
+  const initial = !previousLanguage;
+  if (previousLanguage === tab.dataset.language) { if (focus) tab.focus(); return; }
   activeLanguage = tab.dataset.language;
   codeTabs.forEach(item => { const selected = item === tab; item.setAttribute('aria-selected', String(selected)); item.tabIndex = selected ? 0 : -1; });
   const sample = profile[activeLanguage];
   const code = $('#profile-code');
   code.innerHTML = sample.html;
-  code.style.animation = 'none';
-  void code.offsetWidth;
-  code.style.animation = '';
+  if (window.SiteMotion) window.SiteMotion.selectTab(tab, code, activeLanguage === 'python' ? 1 : -1, initial);
   $('.editor-filename').textContent = sample.filename;
   $('#editor-language').textContent = sample.label;
   $('#code-panel').setAttribute('aria-labelledby', tab.id);
@@ -80,13 +81,16 @@ function toast(message) {
   toastTimer = setTimeout(() => element.classList.remove('visible'), 2800);
 }
 async function copyText(value, button, success) {
+  if (button.getAttribute('aria-busy') === 'true') return;
+  button.setAttribute('aria-busy', 'true');
   try {
     await navigator.clipboard.writeText(value);
-    const use = $('use', button); const old = use.getAttribute('href');
-    use.setAttribute('href', '#check');
+    if (window.SiteMotion) window.SiteMotion.copyFeedback(button, true);
     toast(success);
-    setTimeout(() => use.setAttribute('href', old), 2200);
-  } catch { toast('Não foi possível copiar. Selecione o texto para copiar manualmente.'); }
+  } catch {
+    window.SiteMotion?.copyFeedback(button, false);
+    toast('Não foi possível copiar. Selecione o texto para copiar manualmente.');
+  } finally { button.removeAttribute('aria-busy'); }
 }
 $('.copy-handle').addEventListener('click', event => copyText('@MighelSterzk', event.currentTarget, '@MighelSterzk copiado.'));
 $('.code-copy').addEventListener('click', event => copyText(profile[activeLanguage].raw, event.currentTarget, 'Código copiado.'));
@@ -158,10 +162,10 @@ function openCommands() {
   commandTrigger = document.activeElement;
   commandInput.value = '';
   renderCommands();
-  closeMenu(); commandDialog.showModal(); commandInput.focus();
+  closeMenu(); commandDialog.showModal(); window.SiteMotion?.enterDialog(commandDialog); commandInput.focus();
 }
 $('.command-trigger').addEventListener('click', openCommands);
-$('.command-close').addEventListener('click', () => commandDialog.close());
+$('.command-close').addEventListener('click', () => window.SiteMotion ? window.SiteMotion.closeDialog(commandDialog) : commandDialog.close());
 commandInput.addEventListener('input', renderCommands);
 commandInput.addEventListener('keydown', event => {
   if (['ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', 'Escape'].includes(event.key)) {
@@ -173,6 +177,7 @@ commandInput.addEventListener('keydown', event => {
     if (event.key === 'Enter') $$('.command-option')[activeCommand]?.click();
     if (event.key === 'Escape') {
       if (commandInput.value) { commandInput.value = ''; renderCommands(); }
+      else if (window.SiteMotion) window.SiteMotion.closeDialog(commandDialog);
       else commandDialog.close();
     }
   }
@@ -205,17 +210,35 @@ $$('[data-gear]').forEach(button => button.addEventListener('click', () => {
   $('#gear-dialog-image').alt = gear.alt;
   $('#gear-dialog-link').href = gear.url;
   dialog.showModal();
+  window.SiteMotion?.enterDialog(dialog);
 }));
-$('.dialog-close').addEventListener('click', () => dialog.close());
+const closeGearDialog = () => window.SiteMotion ? window.SiteMotion.closeDialog(dialog) : dialog.close();
+$('.dialog-close').addEventListener('click', closeGearDialog);
+dialog.addEventListener('cancel', event => { if (window.SiteMotion) { event.preventDefault(); closeGearDialog(); } });
 dialog.addEventListener('click', event => {
   const bounds = dialog.getBoundingClientRect();
-  if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+  if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) closeGearDialog();
 });
 dialog.addEventListener('close', () => gearTrigger?.focus());
 $('#year').textContent = new Date().getFullYear();
 
 const indicator = $('.nav-indicator');
+let navigationLockedUntil = 0;
+document.addEventListener('click', event => {
+  const anchor = event.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  const href = anchor.getAttribute('href');
+  const selected = $$('.nav a').find(link => link.getAttribute('href') === href);
+  if (!selected && href !== '#inicio') return;
+  navigationLockedUntil = performance.now() + 1100;
+  $$('.nav a').forEach(link => {
+    if (link === selected) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  moveIndicator(selected);
+});
 function moveIndicator(link) {
+  if (window.SiteMotion) { window.SiteMotion.moveNav(link); return; }
   if (!link) { indicator.style.opacity = '0'; return; }
   indicator.style.left = link.offsetLeft + 'px';
   indicator.style.width = link.offsetWidth + 'px';
@@ -230,7 +253,7 @@ if ('IntersectionObserver' in window) {
   }), { threshold: .07 });
   $$('.about-copy, .code-editor, .section-heading, .project, .gear-card, .networks-copy, .social-list, .contact').forEach(element => { element.classList.add('reveal'); revealObserver.observe(element); });
   const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.isIntersecting && performance.now() >= navigationLockedUntil) {
       $$('.nav a').forEach(link => {
         if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
