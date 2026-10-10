@@ -1,165 +1,63 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#141414">
-  <meta name="description" content="Mighel Sterzk. Desenvolvedor em Lua e Python. Sobre mim, projetos, setup e redes sociais.">
-  <meta property="og:title" content="Mighel Sterzk — desenvolvedor">
-  <meta property="og:description" content="Programo em Lua e Python. Conheça meus projetos, meu setup e onde me encontrar.">
+  <meta name="description" content="Mighel Sterzk. Programo em Lua e Python. Meu GitHub, setup e redes.">
+  <meta property="og:title" content="Mighel Sterzk">
+  <meta property="og:description" content="Lua, Python, meu setup e minhas redes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mighel-sterzk.mysticsage3.chatgpt.site">
-  <title>Mighel Sterzk — desenvolvedor</title>
+  <title>Mighel Sterzk</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="identity.css">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v4')||'dark'}catch{}</script>
-  <script src="interactions.js" defer></script>
-  <script src="app.js" defer></script>
 </head>
 <body>
-  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-      <symbol id="up" viewBox="0 0 24 24"><path d="m6 18 12-12M6 6h12v12"/></symbol>
-      <symbol id="down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
-      <symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></symbol>
-      <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
-      <symbol id="moon" viewBox="0 0 24 24"><path d="M20 14a8 8 0 0 1-10-10A8 8 0 1 0 20 14Z"/></symbol>
-      <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></symbol>
-      <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
-      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
-      <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
-      <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
-      <symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14m-7-7v14"/></symbol>
-      <symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.5-4.1-1.5-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.2-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .2 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol>
-      <symbol id="twitch" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 2 2 6v15h5v3l4-3h4L22 14V2H4Zm16 11-4 4h-5l-4 3v-3H4V4h16v9Zm-5-6h2v6h-2V7Zm-5 0h2v6h-2V7Z"/></symbol>
-      <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.3 22H2.1l8.3-9.5L2.7 2h6.5l4.6 6.9L18.9 2ZM17.9 20h1.7L8.2 3.9H6.4L17.9 20Z"/></symbol>
-      <symbol id="youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M23 7a3.2 3.2 0 0 0-2.3-2.3C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.7.5A3.2 3.2 0 0 0 1 7C.5 8.9.5 12 .5 12s0 3.1.5 5a3.2 3.2 0 0 0 2.3 2.3c1.9.5 8.7.5 8.7.5s6.8 0 8.7-.5A3.2 3.2 0 0 0 23 17c.5-1.9.5-5 .5-5s0-3.1-.5-5ZM9.7 15.4V8.6l6 3.4-6 3.4Z"/></symbol>
-    </defs>
-  </svg>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.5-4.1-1.5-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.2-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .2 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol>
+<symbol id="twitch" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 2 2 6v15h5v3l4-3h4L22 14V2H4Zm16 11-4 4h-5l-4 3v-3H4V4h16v9Zm-5-6h2v6h-2V7Zm-5 0h2v6h-2V7Z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.3 22H2.1l8.3-9.5L2.7 2h6.5l4.6 6.9L18.9 2ZM17.9 20h1.7L8.2 3.9H6.4L17.9 20Z"/></symbol>
+<symbol id="youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M23 7a3.2 3.2 0 0 0-2.3-2.3C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.7.5A3.2 3.2 0 0 0 1 7C.5 8.9.5 12 .5 12s0 3.1.5 5a3.2 3.2 0 0 0 2.3 2.3c1.9.5 8.7.5 8.7.5s6.8 0 8.7-.5A3.2 3.2 0 0 0 23 17c.5-1.9.5-5 .5-5s0-3.1-.5-5ZM9.7 15.4V8.6l6 3.4-6 3.4Z"/></symbol></defs></svg>
   <a class="skip" href="#main">Pular para o conteúdo</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#inicio" aria-label="Mighel Sterzk, início"><span>Mighel Sterzk</span></a>
-      <nav class="nav" id="navigation" aria-label="Navegação principal">
-        <span class="nav-indicator" aria-hidden="true"></span>
-        <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#setup">Setup</a><a href="#redes">Redes</a>
+  <div class="page">
+    <header>
+      <nav aria-label="Navegação principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#setup">Setup</a>
+        <a href="#redes">Redes</a>
       </nav>
-      <div class="header-actions">
-        <button class="command-trigger" aria-label="Abrir atalhos" aria-haspopup="dialog"><svg class="icon"><use href="#search"/></svg><span>Atalhos</span><kbd>Ctrl K</kbd></button>
-        <button class="icon-button theme-button" aria-label="Ativar tema escuro"><svg class="icon"><use href="#moon"/></svg></button>
-        <button class="icon-button menu-button" aria-label="Abrir menu" aria-controls="navigation" aria-expanded="false"><svg class="icon"><use href="#menu"/></svg></button>
-      </div>
-    </div>
-  </header>
-  <main id="main">
-    <section class="hero container" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-role">Desenvolvedor em Lua & Python</p>
-        <h1 id="hero-title"><span class="name-word">Mighel</span><br><span class="name-word">Sterzk<span class="name-dot">.</span></span></h1>
-        <p class="hero-description">Código, setup e um pouco de mim.<br>Bem-vindo ao meu canto da internet.</p>
-        <div class="hero-actions">
-          <a class="button" href="#sobre">Conheça meu espaço <svg class="icon"><use href="#down"/></svg></a>
-          <a class="inline-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#github"/></svg> GitHub <svg class="icon"><use href="#up"/></svg></a>
-        </div>
-      </div>
-      <nav class="hero-index" aria-label="Explore meu espaço">
-        <div class="index-heading"><span>Um pouco de mim.</span><svg class="icon" aria-hidden="true"><use href="#code"/></svg></div>
-        <p>Além do código,<br>tem todo o resto.</p>
-        <span class="index-highlight" aria-hidden="true"></span>
-        <a href="#projetos"><span class="index-number">01</span><span>O que eu crio</span><svg class="icon"><use href="#up"/></svg></a>
-        <a href="#setup"><span class="index-number">02</span><span>O que eu uso</span><svg class="icon"><use href="#up"/></svg></a>
-        <a href="#redes"><span class="index-number">03</span><span>Onde me encontrar</span><svg class="icon"><use href="#up"/></svg></a>
-        <div class="index-bottom"><span>Lua</span><span>Python</span><svg class="icon"><use href="#code"/></svg></div>
-      </nav>
-      <div class="hero-footer"><span>Meu espaço pessoal</span><a href="#sobre">Role para explorar <svg class="icon"><use href="#down"/></svg></a></div>
-    </section>
-
-    <section class="section container about" id="sobre" aria-labelledby="about-title">
-      <div class="about-copy">
-        <h2 id="about-title">Sobre mim.</h2>
-        <p class="large-copy">Sou o Mighel.<br>Programo em <span class="language-name">Lua</span> e <span class="language-name">Python</span>.</p>
-        <p>Este site reúne meu lado desenvolvedor e um pouco do meu dia a dia: meus projetos, os periféricos que uso e minhas redes.</p>
-        <a class="inline-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">@mighelsterzkdev <svg class="icon"><use href="#up"/></svg></a>
-      </div>
-      <div class="code-editor">
-        <div class="editor-header">
-          <div class="code-tabs" role="tablist" aria-label="Linguagem do perfil">
-            <span class="tab-indicator" aria-hidden="true"></span>
-            <button role="tab" aria-selected="true" aria-controls="code-panel" id="lua-tab" data-language="lua" tabindex="0">Lua</button>
-            <button role="tab" aria-selected="false" aria-controls="code-panel" id="python-tab" data-language="python" tabindex="-1">Python</button>
-          </div>
-          <button class="icon-button code-copy" aria-label="Copiar código do perfil"><svg class="icon"><use href="#copy"/></svg></button>
-        </div>
-        <div id="code-panel" role="tabpanel" aria-labelledby="lua-tab">
-          <div class="editor-filename">sobre_mim.lua</div>
-          <div class="editor-content"><div class="line-numbers" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div><pre><code id="profile-code"></code></pre></div>
-        </div>
-        <div class="editor-footer"><span><svg class="icon"><use href="#code"/></svg> Mighel Sterzk</span><span id="editor-language">Lua</span></div>
-      </div>
-    </section>
-
-    <section class="section container projects" id="projetos" aria-labelledby="projects-title">
-      <div class="section-heading"><div><h2 id="projects-title">O que estou criando.</h2><p>Projetos pessoais e experimentos com código.</p></div><a class="inline-link" href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">Ver repositórios <svg class="icon"><use href="#up"/></svg></a></div>
-      <article class="project">
-        <button class="project-toggle" aria-expanded="false" aria-controls="project-details">
-          <span class="project-mark" aria-hidden="true"><svg class="icon"><use href="#code"/></svg></span>
-          <span class="project-summary"><span class="project-name">Meu site pessoal</span><span class="project-caption">Sobre mim, projetos, setup e conexões.</span></span>
-          <span class="project-status">Você está aqui</span><span class="project-expand"><svg class="icon"><use href="#plus"/></svg></span>
-        </button>
-        <div class="project-details" id="project-details" inert><div class="project-details-inner">
-          <div class="project-story"><h3>Um lugar com a minha cara.</h3><p>Meu ponto de encontro na internet. Aqui reúno o que programo, os equipamentos que uso e os links para me acompanhar.</p><button class="inline-link project-copy"><svg class="icon"><use href="#copy"/></svg><span class="copy-label">Copiar link do site</span></button></div>
-          <dl class="project-stack"><div><dt>Interface</dt><dd>HTML</dd></div><div><dt>Estilo</dt><dd>CSS</dd></div><div><dt>Interações</dt><dd>JavaScript</dd></div></dl>
-        </div></div>
-      </article>
-      <p class="project-note">Os próximos projetos publicados ficam no <a href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">meu GitHub <svg class="icon"><use href="#up"/></svg></a>.</p>
-    </section>
-
-    <section class="section container setup" id="setup" aria-labelledby="setup-title">
-      <div class="section-heading"><div><h2 id="setup-title">Meu setup.</h2><p>Os periféricos que uso no dia a dia.</p></div><p class="section-aside">Mouse, teclado e headset.</p></div>
-      <div class="gear-grid">
-        <button class="gear-card" data-gear="mouse" aria-label="Ver Logitech G PRO X3 SUPERSTRIKE" aria-haspopup="dialog">
-          <span class="gear-image mouse-image"><img src="assets/mouse.png" alt="Logitech G PRO X3 SUPERSTRIKE preto" loading="lazy" width="2500" height="2160"></span>
-          <span class="gear-description"><span class="gear-category">Mouse · Logitech G</span><strong>PRO X3 SUPERSTRIKE</strong><span class="gear-detail">Preto</span><svg class="icon"><use href="#up"/></svg></span>
-        </button>
-        <button class="gear-card" data-gear="keyboard" aria-label="Ver Attack Shark X68" aria-haspopup="dialog">
-          <span class="gear-image keyboard-image"><img src="assets/keyboard.jpg" alt="Imagem de referência do Attack Shark X68 HE" loading="lazy" width="1000" height="1000"></span>
-          <span class="gear-description"><span class="gear-category">Teclado · Attack Shark</span><strong>X68</strong><span class="gear-detail">Linha X68</span><svg class="icon"><use href="#up"/></svg></span>
-        </button>
-        <button class="gear-card" data-gear="headset" aria-label="Ver MCHOSE V9 Pro" aria-haspopup="dialog">
-          <span class="gear-image headset-image"><img src="assets/headset.jpg" alt="Imagem de referência do MCHOSE V9 Pro" loading="lazy" width="1000" height="1000"></span>
-          <span class="gear-description"><span class="gear-category">Headset · MCHOSE</span><strong>V9 Pro</strong><span class="gear-detail">Áudio</span><svg class="icon"><use href="#up"/></svg></span>
-        </button>
-      </div>
-      <p class="gear-note">Imagens de referência dos fabricantes.</p>
-    </section>
-
-    <section class="section container networks" id="redes" aria-labelledby="networks-title">
-      <div class="networks-copy"><h2 id="networks-title">Na internet.</h2><p>Você também me encontra por aqui.</p></div>
-      <div class="social-list">
-        <span class="social-highlight" aria-hidden="true"></span>
-        <a class="social-row" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon brand-icon"><use href="#github"/></svg><span class="social-name">GitHub</span><span class="social-handle">@mighelsterzkdev</span><svg class="icon"><use href="#up"/></svg></a>
-        <a class="social-row" href="https://www.twitch.tv/sterzk" target="_blank" rel="noopener noreferrer"><svg class="icon brand-icon twitch-icon"><use href="#twitch"/></svg><span class="social-name">Twitch</span><span class="social-handle">@sterzk</span><svg class="icon"><use href="#up"/></svg></a>
-        <a class="social-row" href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon brand-icon"><use href="#x"/></svg><span class="social-name">X</span><span class="social-handle">@MighelSterzk</span><svg class="icon"><use href="#up"/></svg></a>
-        <a class="social-row" href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon brand-icon youtube-icon"><use href="#youtube"/></svg><span class="social-name">YouTube</span><span class="social-handle">@MighelSterzk</span><svg class="icon"><use href="#up"/></svg></a>
-      </div>
-    </section>
-    <section class="contact container" aria-labelledby="contact-title"><h2 id="contact-title">Vamos conversar.</h2><div class="contact-actions"><a class="button" href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer">Me encontre no X <svg class="icon"><use href="#up"/></svg></a><button class="copy-handle"><svg class="icon"><use href="#copy"/></svg><span class="copy-label">Copiar @MighelSterzk</span></button></div></section>
-  </main>
-  <footer class="site-footer container"><a class="brand" href="#inicio">Mighel Sterzk</a><span>© <span id="year">2026</span></span><a class="inline-link" href="#inicio">Voltar ao início <svg class="icon"><use href="#up"/></svg></a></footer>
-  <dialog class="gear-dialog" aria-labelledby="gear-dialog-title">
-    <button class="icon-button dialog-close" aria-label="Fechar equipamento"><svg class="icon"><use href="#close"/></svg></button>
-    <div class="dialog-image"><img src="assets/mouse.png" alt="" id="gear-dialog-image" width="600" height="500"></div>
-    <div class="dialog-content"><p id="gear-dialog-category"></p><h2 id="gear-dialog-title"></h2><p id="gear-dialog-detail"></p><a id="gear-dialog-link" class="button" href="https://www.logitechg.com/en-us/shop/p/pro-x3-superstrike-mouse" target="_blank" rel="noopener noreferrer">Página do fabricante <svg class="icon"><use href="#up"/></svg></a></div>
-  </dialog>
-  <dialog class="command-dialog" aria-label="Atalhos do site">
-    <div class="command-search"><svg class="icon"><use href="#search"/></svg><input id="command-search" type="search" role="combobox" aria-label="Buscar seção ou rede social" aria-expanded="true" aria-controls="command-results" aria-autocomplete="list" autocomplete="off" placeholder="Para onde vamos?"><button class="command-close" aria-label="Fechar atalhos"><kbd>Esc</kbd></button></div>
-    <div class="command-results" id="command-results" role="listbox" aria-label="Seções e redes"></div>
-    <p class="command-empty" hidden>Nenhum resultado. Tente “setup” ou “GitHub”.</p>
-    <div class="command-footer"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>↵</kbd> abrir</span></div>
-  </dialog>
-  <div class="toast" role="status" aria-live="polite"></div>
+    </header>
+    <main id="main">
+      <section class="intro" id="inicio" aria-labelledby="name">
+        <h1 id="name">Mighel Sterzk</h1>
+        <p>Programo em Lua e Python.</p>
+      </section>
+      <section class="content-section" id="projetos" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projetos</h2>
+        <a class="github-link" href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
+          <span>Repositórios no GitHub</span>
+          <span class="handle">@mighelsterzkdev</span>
+        </a>
+      </section>
+      <section class="content-section" id="setup" aria-labelledby="setup-title">
+        <h2 id="setup-title">Setup</h2>
+        <dl class="setup-list">
+          <div><dt>Mouse</dt><dd>Logitech G PRO X3 SUPERSTRIKE <span class="detail">Preto</span></dd></div>
+          <div><dt>Teclado</dt><dd>Attack Shark X68</dd></div>
+          <div><dt>Headset</dt><dd>MCHOSE V9 Pro</dd></div>
+        </dl>
+      </section>
+      <section class="content-section" id="redes" aria-labelledby="networks-title">
+        <h2 id="networks-title">Redes</h2>
+        <ul class="social-list">
+          <li><a href="https://www.twitch.tv/sterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#twitch"/></svg><span class="social-name">Twitch</span><span class="handle">@sterzk</span></a></li>
+          <li><a href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#x"/></svg><span class="social-name">X</span><span class="handle">@MighelSterzk</span></a></li>
+          <li><a href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg><span class="social-name">YouTube</span><span class="handle">@MighelSterzk</span></a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

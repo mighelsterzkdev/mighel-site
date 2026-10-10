@@ -3,11 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "build": "esbuild src/interactions.js --bundle --minify --format=iife --outfile=dist/interactions.js"
-  },
-  "devDependencies": {
-    "esbuild": "^0.28.2",
-    "motion": "^14.1.0"
-  }
+  "scripts": { "dev": "node preview.mjs", "preview": "node preview.mjs" }
 }
