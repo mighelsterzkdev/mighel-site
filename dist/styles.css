@@ -20,8 +20,7 @@ a:focus-visible { outline: 2px solid #cccccc; outline-offset: 6px; border-radius
 .intro { padding: 104px 0 64px; }
 h1 { margin: 0 0 12px; font-size: clamp(40px, 6vw, 60px); line-height: 1.12; letter-spacing: -.055em; font-weight: 650; }
 .intro p { margin: 18px 0 0; color: var(--secondary); font-size: 20px; letter-spacing: -.02em; }
-.intro-toggle { display: inline-flex; justify-content: center; align-items: center; gap: 8px; margin-top: 8px; min-height: 40px; min-width: 134px; padding: 7px 15px; background: transparent; border: 1px solid #626262; border-radius: 999px; color: var(--text); font: inherit; font-size: 15px; font-weight: 500; line-height: 24px; cursor: pointer; }
-.intro-toggle svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.intro-toggle { margin-top: 8px; border: 0; color: var(--text); font-family: inherit; cursor: pointer; }
 .intro-toggle .play-icon { fill: currentColor; stroke: none; }
 .intro-toggle .pause-icon, .intro-toggle[aria-pressed=true] .play-icon { display: none; }
 .intro-toggle[aria-pressed=true] .pause-icon { display: block; }
@@ -70,7 +69,6 @@ dd { margin: 0; }
   .github-link:hover > span:first-of-type, .social-list a:hover .social-name { text-decoration: underline; }
   .dock a:hover::after, .dock button:hover::after { opacity: 1; }
   .dock a:hover svg, .dock button:hover svg { opacity: 1; }
-  .intro-toggle:hover { color: var(--text); border-color: var(--secondary); }
   .link-pill:hover { text-decoration: underline; }
   .email-button:hover span, .music-credit a:hover { text-decoration: underline; }
 }
