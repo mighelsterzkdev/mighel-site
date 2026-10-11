@@ -51,15 +51,15 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .link-pill svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .link-pill .icon { fill: currentColor; stroke: none; }
 #projetos > .github-link { margin-top: 24px; color: var(--secondary); font-size: 15px; }
-.activity-card { padding: 18px; border: 1px solid var(--line); border-radius: 12px; --activity-0: #171717; --activity-1: #555555; --activity-2: #888888; --activity-3: #bbbbbb; --activity-4: #f4f4f4; }
-:root[data-theme=light] .activity-card { --activity-0: #eeeeee; --activity-1: #bbbbbb; --activity-2: #888888; --activity-3: #555555; --activity-4: #222222; }
+.activity-card { padding: 18px; border: 1px solid var(--line); border-radius: 12px; --activity-0: #151b23; --activity-1: #033a16; --activity-2: #196c2e; --activity-3: #2ea043; --activity-4: #56d364; --activity-border: #0104090d; }
+:root[data-theme=light] .activity-card { --activity-0: #eff2f5; --activity-1: #aceebb; --activity-2: #4ac26b; --activity-3: #2da44e; --activity-4: #116329; --activity-border: #1f23280d; }
 .activity-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-bottom: 18px; font-size: 14px; }
 .activity-heading a { color: var(--secondary); }
 .activity-scroll { min-height: 112px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
 .activity-scroll:focus-visible { outline: 2px solid var(--secondary); outline-offset: 4px; border-radius: 4px; }
 .activity-scroll svg { display: block; width: 100%; min-width: 652px; height: auto; }
 .activity-scroll text { fill: var(--secondary); font-family: Geist, sans-serif; font-size: 11px; }
-.activity-scroll rect { stroke: var(--line); stroke-width: .5; }
+.activity-scroll rect { stroke: var(--activity-border); stroke-width: .5; }
 .activity-card [data-level="0"] { fill: var(--activity-0); background: var(--activity-0); }
 .activity-card [data-level="1"] { fill: var(--activity-1); background: var(--activity-1); }
 .activity-card [data-level="2"] { fill: var(--activity-2); background: var(--activity-2); }
@@ -67,7 +67,7 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .activity-card [data-level="4"] { fill: var(--activity-4); background: var(--activity-4); }
 .activity-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; margin-top: 14px; color: var(--secondary); font-size: 13px; }
 .activity-legend { display: flex; align-items: center; gap: 4px; }
-.activity-legend i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--line); }
+.activity-legend i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--activity-border); }
 .activity-legend span:first-child { margin-right: 4px; }
 .activity-legend span:last-child { margin-left: 4px; }
 .activity-card noscript p { font-size: 14px; color: var(--secondary); }
