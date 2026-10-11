@@ -1,6 +1,6 @@
 # Mighel Sterzk
 
-Site pessoal estático, em português. Uma página com apresentação, projetos, GitHub, setup e redes sociais. Linguagens informadas: Lua e C++.
+Site pessoal estático, em português. Uma página com apresentação, projetos, GitHub, setup e redes sociais. Linguagens informadas: Lua e Python.
 
 ## Executar
 
@@ -38,7 +38,7 @@ Teclado informado como Attack Shark X68, sem afirmar a versão HE ou Pro.
 
 Phantom Menu é apresentado como um menu para FiveM desenvolvido em Lua, conforme informado por Mighel. O vídeo fornecido é incorporado pelo player oficial do YouTube, sem autoplay, com carregamento tardio e modo de privacidade aprimorada. Ao entrar no player ou tirar o foco da página, a música e o percurso da intro param. O botão YouTube permite abrir o vídeo diretamente caso a incorporação esteja indisponível. Website aponta para https://tdhgaming.com.br/.
 
-O convite https://discord.gg/2SbAythsx5 aparece em Redes. Skills e About usam Lua e C++ após a correção de Mighel; C++ não é atribuído ao Phantom sem confirmação.
+O convite https://discord.gg/2SbAythsx5 aparece em Redes. Skills e About usam Lua e Python, conforme informado por Mighel. O Phantom Menu mantém a tecnologia Lua.
 
 Referência de composição: https://ayushgopal17.github.io/. Conteúdo e implementação próprios.
 Fonte Geist: https://github.com/google/fonts, licença SIL Open Font License 1.1 em `dist/assets/OFL-geist.txt`.
