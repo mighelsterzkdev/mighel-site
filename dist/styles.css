@@ -4,8 +4,8 @@
   font-weight: 100 900;
   font-display: swap;
 }
-:root { color-scheme: dark; --background: #000000; --text: #fafafa; --secondary: #aaaaaa; --line: #262626; --tag-bg: #ffffff; --tag-text: #000000; --dock-bg: #141414e0; --dock-border: #ffffff1f; }
-:root[data-theme=light] { color-scheme: light; --background: #ffffff; --text: #141414; --secondary: #595959; --line: #e5e5e5; --tag-bg: #141414; --tag-text: #ffffff; --dock-bg: #fafafae0; --dock-border: #0000001f; }
+:root { color-scheme: dark; --background: #000000; --text: #fafafa; --secondary: #aaaaaa; --line: #262626; --tag-bg: #ffffff; --tag-text: #000000; --link-bg: #222222; --dock-bg: #141414e0; --dock-border: #ffffff1f; }
+:root[data-theme=light] { color-scheme: light; --background: #ffffff; --text: #141414; --secondary: #595959; --line: #e5e5e5; --tag-bg: #141414; --tag-text: #ffffff; --link-bg: #eeeeee; --dock-bg: #fafafae0; --dock-border: #0000001f; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 32px; }
 body { margin: 0; background: var(--background); color: var(--text); font-family: Geist, sans-serif; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
@@ -20,14 +20,16 @@ a:focus-visible { outline: 2px solid #cccccc; outline-offset: 6px; border-radius
 .intro { padding: 104px 0 64px; }
 h1 { margin: 0 0 12px; font-size: clamp(40px, 6vw, 60px); line-height: 1.12; letter-spacing: -.055em; font-weight: 650; }
 .intro p { margin: 18px 0 0; color: var(--secondary); font-size: 20px; letter-spacing: -.02em; }
-.intro-toggle { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; min-height: 34px; padding: 5px 12px; background: transparent; border: 1px solid var(--line); border-radius: 999px; color: var(--secondary); font: inherit; font-size: 13px; cursor: pointer; }
-.intro-toggle svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.intro-toggle { display: inline-flex; justify-content: center; align-items: center; gap: 8px; margin-top: 8px; min-height: 40px; min-width: 134px; padding: 7px 15px; background: transparent; border: 1px solid #626262; border-radius: 999px; color: var(--text); font: inherit; font-size: 15px; font-weight: 500; line-height: 24px; cursor: pointer; }
+.intro-toggle svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.intro-toggle .play-icon { fill: currentColor; stroke: none; }
 .intro-toggle .pause-icon, .intro-toggle[aria-pressed=true] .play-icon { display: none; }
 .intro-toggle[aria-pressed=true] .pause-icon { display: block; }
 .email-button { display: flex; align-items: center; gap: 9px; min-height: 44px; max-width: 100%; margin-top: 15px; padding: 0; border: 0; background: transparent; color: var(--secondary); font: inherit; font-size: 17px; text-align: left; cursor: pointer; }
 .email-button svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .email-button span { overflow-wrap: anywhere; }
-.email-button:focus-visible, .intro-toggle:focus-visible { outline: 2px solid var(--secondary); outline-offset: 5px; border-radius: 5px; }
+.email-button:focus-visible { outline: 2px solid var(--secondary); outline-offset: 5px; border-radius: 5px; }
+.intro-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; }
 .about p { color: var(--secondary); line-height: 1.85; margin: 0; max-width: 650px; }
 .about a { text-decoration: underline; text-decoration-color: var(--line); }
 .content-section { margin: 0 0 48px; }
@@ -36,6 +38,20 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
 .tags li { padding: 5px 14px; border-radius: 8px; background: var(--tag-bg); color: var(--tag-text); font-size: 14px; font-weight: 500; line-height: 1.5; }
 .tools-title { font-size: 17px; font-weight: 500; margin: 24px 0 12px; }
+.projects-heading { text-align: center; padding-top: 20px; margin-bottom: 36px; }
+.section-badge { display: inline-block; padding: 4px 14px; border-radius: 8px; background: var(--tag-bg); color: var(--tag-text); font-size: 13px; font-weight: 500; }
+.projects-heading h2 { margin: 12px 0 0; font-size: 34px; line-height: 1.25; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; }
+.project { display: grid; gap: 14px; min-width: 0; }
+.project h3 { margin: 0; font-size: 23px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; }
+.project p { margin: -6px 0 0; color: var(--secondary); font-size: 16px; }
+.project-video { width: 100%; min-width: 0; aspect-ratio: 16 / 9; min-height: 200px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #111111; }
+.project-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.project-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.link-pill { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 7px 14px; border-radius: 8px; background: var(--link-bg); font-size: 14px; font-weight: 500; }
+.link-pill svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.link-pill .icon { fill: currentColor; stroke: none; }
+#projetos > .github-link { margin-top: 24px; color: var(--secondary); font-size: 15px; }
 .github-link { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; width: fit-content; min-height: 44px; }
 .handle { color: var(--secondary); font-size: 15px; }
 .github-link .handle { margin-left: 2px; }
@@ -55,6 +71,7 @@ dd { margin: 0; }
   .dock a:hover::after, .dock button:hover::after { opacity: 1; }
   .dock a:hover svg, .dock button:hover svg { opacity: 1; }
   .intro-toggle:hover { color: var(--text); border-color: var(--secondary); }
+  .link-pill:hover { text-decoration: underline; }
   .email-button:hover span, .music-credit a:hover { text-decoration: underline; }
 }
 body::after { content: ''; position: fixed; z-index: 9; inset: auto 0 0; height: calc(104px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, var(--background) 80%); pointer-events: none; }
@@ -81,6 +98,9 @@ body::after { content: ''; position: fixed; z-index: 9; inset: auto 0 0; height:
   .email-button { font-size: 16px; gap: 8px; }
   .content-section { margin-bottom: 38px; }
   h2 { font-size: 22px; margin-bottom: 16px; }
+  .projects-heading { padding-top: 12px; margin-bottom: 28px; }
+  .projects-heading h2 { font-size: 30px; }
+  .project h3 { font-size: 22px; }
   .github-link { column-gap: 10px; row-gap: 0; }
   .github-link .handle { flex-basis: calc(100% - 29px); margin-left: 29px; }
   .setup-list > div { grid-template-columns: 70px 1fr; gap: 14px; }
@@ -89,6 +109,7 @@ body::after { content: ''; position: fixed; z-index: 9; inset: auto 0 0; height:
   .social-list a { gap: 12px; }
   .social-list .handle { margin-left: 0; }
   .social-name { min-width: 68px; }
+  .social-list .handle { font-size: 14px; }
 }
 @media (max-width: 380px) { .dock { gap: 0; padding: 6px; bottom: calc(14px + env(safe-area-inset-bottom)); } .dock a, .dock button { width: 40px; height: 44px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .page { animation: none; } .dock svg, .dock [data-label]::after, .toast { transition: none; } }

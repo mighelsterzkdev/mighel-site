@@ -148,5 +148,8 @@ window.addEventListener('keydown', event => {
 });
 reducedMotion.addEventListener('change', stopIntro);
 document.addEventListener('visibilitychange', () => { if (document.hidden) stopMusic(); });
+// Entering the YouTube player transfers focus out of this document.
+// Stop the intro so its audio and scrolling do not compete with the video.
+window.addEventListener('blur', stopMusic);
 window.addEventListener('pagehide', stopMusic);
 syncPlayback();
