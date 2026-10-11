@@ -18,7 +18,17 @@ Abra http://127.0.0.1:4173. Para publicar em qualquer hospedagem estática, envi
 - Layout, cores e tipografia: `dist/styles.css`.
 - Fonte e favicon: `dist/assets/`.
 
-Página com fundo preto, etiquetas de Skills e Tools e barra de ícones fixa no rodapé. A barra abre início, GitHub, Twitch, X, YouTube e setup; o último botão alterna tema claro/escuro e salva a preferência localmente. JavaScript nativo apenas para o tema, sem dependências.
+Página com fundo preto, About, etiquetas de Skills e Tools e barra de ícones fixa no rodapé. A barra abre início, GitHub, X e YouTube, copia o e-mail, alterna o tema e controla a música. A preferência de tema é salva localmente. JavaScript nativo, sem dependências.
+
+## Intro e contato
+
+- Play intro inicia a música e percorre a página suavemente em 36 segundos. O áudio continua depois do percurso e pode ser pausado pela barra.
+- Pause intro ou o botão de música pausa a reprodução. Scroll manual, toque ou navegação pelo teclado interrompem o percurso. Escape pausa a música. Ao sair da aba, a reprodução para.
+- A rolagem guiada acontece somente após clicar Play intro. Para ouvir sem rolagem, use a nota musical. Efeitos passivos continuam respeitando movimento reduzido.
+- E-mail no topo e na barra: `sterzkmighel@gmail.com`. A confirmação aparece somente após a cópia ter sucesso.
+- Áudio só carrega após interação. Não há autoplay na abertura do site.
+
+Música: Gymnopédie nº 1, de Erik Satie; gravação de Teknopazzo sob CC0. Fonte, licença e URL do arquivo em `dist/assets/MUSIC-LICENSE.txt`. O arquivo está incluído localmente, sem player externo.
 
 Hover apenas sublinha os links de conteúdo ou mostra o nome dos ícones na barra; não altera posição ou escala. A entrada usa um fade curto, desativado para quem prefere movimento reduzido. A barra cabe em telas de 320 px e respeita a área segura inferior do celular.
 
