@@ -40,7 +40,7 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .projects-heading { text-align: center; padding-top: 20px; margin-bottom: 36px; }
 .section-badge { display: inline-block; padding: 4px 14px; border-radius: 8px; background: var(--tag-bg); color: var(--tag-text); font-size: 13px; font-weight: 500; }
 .projects-heading h2 { margin: 12px 0 0; font-size: 34px; line-height: 1.25; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; }
+.projects-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; }
 .project { display: grid; gap: 14px; min-width: 0; }
 .project h3 { margin: 0; font-size: 23px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; }
 .project p { margin: -6px 0 0; color: var(--secondary); font-size: 16px; }

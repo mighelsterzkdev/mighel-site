@@ -40,7 +40,7 @@
     const origin = days[0].time - new Date(days[0].time).getUTCDay() * dayMs;
     const columns = Math.floor((days.at(-1).time - origin) / (7 * dayMs)) + 1;
     const total = days.reduce((sum, day) => sum + day.count, 0);
-    const count = `${total.toLocaleString('pt-BR')} ${total === 1 ? 'contribuição' : 'contribuições'} no último ano`;
+    const count = `${total.toLocaleString('pt-BR')} ${total === 1 ? 'contribuição visível' : 'contribuições visíveis'} no último ano`;
     const svg = svgElement('svg', { viewBox: `0 0 ${28 + columns * 12} 108`, role: 'img', 'aria-label': `${count}. De ${dates.format(days[0].time)} a ${dates.format(days.at(-1).time)}.` });
     let lastMonthX = -40;
     for (const [index, day] of days.entries()) {
