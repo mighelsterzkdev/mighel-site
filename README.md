@@ -40,5 +40,17 @@ Phantom Menu é apresentado como um menu para FiveM desenvolvido em Lua, conform
 
 O convite https://discord.gg/2SbAythsx5 aparece em Redes. Skills e About usam Lua e Python, conforme informado por Mighel. O Phantom Menu mantém a tecnologia Lua.
 
+## GitHub activity
+
+Calendário em cinza baseado nos dados visíveis de `mighelsterzkdev`. A página consulta https://github-contributions-api.jogruber.de/v4/mighelsterzkdev?y=last, um serviço que lê o perfil público do GitHub e mantém cache de uma hora. Não utiliza token ou acesso ao código dos repositórios. Os totais incluem contribuições privadas somente se o proprietário habilitar GitHub → perfil → Contribution settings → Private contributions. A alteração revela quantidades diárias, mantendo os detalhes dos repositórios privados ocultos.
+
+A data exibida indica quando a consulta foi feita. Se o serviço estiver indisponível, permanece a cópia local com sua data original. Para atualizar essa cópia antes de uma publicação:
+
+```sh
+node src/update-github-activity.mjs
+```
+
+O gráfico possui descrições por dia ao passar o mouse, suporte a tema claro e escrolagem horizontal pelo teclado no celular. Créditos e licença da música permanecem apenas nos arquivos, sem texto no rodapé da página.
+
 Referência de composição: https://ayushgopal17.github.io/. Conteúdo e implementação próprios.
 Fonte Geist: https://github.com/google/fonts, licença SIL Open Font License 1.1 em `dist/assets/OFL-geist.txt`.

@@ -51,6 +51,26 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .link-pill svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .link-pill .icon { fill: currentColor; stroke: none; }
 #projetos > .github-link { margin-top: 24px; color: var(--secondary); font-size: 15px; }
+.activity-card { padding: 18px; border: 1px solid var(--line); border-radius: 12px; --activity-0: #171717; --activity-1: #555555; --activity-2: #888888; --activity-3: #bbbbbb; --activity-4: #f4f4f4; }
+:root[data-theme=light] .activity-card { --activity-0: #eeeeee; --activity-1: #bbbbbb; --activity-2: #888888; --activity-3: #555555; --activity-4: #222222; }
+.activity-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-bottom: 18px; font-size: 14px; }
+.activity-heading a { color: var(--secondary); }
+.activity-scroll { min-height: 112px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.activity-scroll:focus-visible { outline: 2px solid var(--secondary); outline-offset: 4px; border-radius: 4px; }
+.activity-scroll svg { display: block; width: 100%; min-width: 652px; height: auto; }
+.activity-scroll text { fill: var(--secondary); font-family: Geist, sans-serif; font-size: 11px; }
+.activity-scroll rect { stroke: var(--line); stroke-width: .5; }
+.activity-card [data-level="0"] { fill: var(--activity-0); background: var(--activity-0); }
+.activity-card [data-level="1"] { fill: var(--activity-1); background: var(--activity-1); }
+.activity-card [data-level="2"] { fill: var(--activity-2); background: var(--activity-2); }
+.activity-card [data-level="3"] { fill: var(--activity-3); background: var(--activity-3); }
+.activity-card [data-level="4"] { fill: var(--activity-4); background: var(--activity-4); }
+.activity-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; margin-top: 14px; color: var(--secondary); font-size: 13px; }
+.activity-legend { display: flex; align-items: center; gap: 4px; }
+.activity-legend i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--line); }
+.activity-legend span:first-child { margin-right: 4px; }
+.activity-legend span:last-child { margin-left: 4px; }
+.activity-card noscript p { font-size: 14px; color: var(--secondary); }
 .github-link { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; width: fit-content; min-height: 44px; }
 .handle { color: var(--secondary); font-size: 15px; }
 .github-link .handle { margin-left: 2px; }
@@ -70,7 +90,7 @@ dd { margin: 0; }
   .dock a:hover::after, .dock button:hover::after { opacity: 1; }
   .dock a:hover svg, .dock button:hover svg { opacity: 1; }
   .link-pill:hover { text-decoration: underline; }
-  .email-button:hover span, .music-credit a:hover { text-decoration: underline; }
+  .email-button:hover span, .activity-heading a:hover { text-decoration: underline; }
 }
 body::after { content: ''; position: fixed; z-index: 9; inset: auto 0 0; height: calc(104px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, var(--background) 80%); pointer-events: none; }
 .dock { position: fixed; z-index: 10; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; gap: 4px; padding: 8px; border: 1px solid var(--dock-border); border-radius: 999px; background: var(--dock-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 4px 24px #0000001f; }
@@ -83,8 +103,6 @@ body::after { content: ''; position: fixed; z-index: 9; inset: auto 0 0; height:
 :root[data-theme=light] .dock .moon { display: block; }
 .music-toggle .music-pause, .music-toggle[aria-pressed=true] .music-note { display: none; }
 .music-toggle[aria-pressed=true] .music-pause { display: block; }
-.music-credit { margin-top: 44px; color: var(--secondary); font-size: 13px; line-height: 1.8; }
-.music-credit span { display: block; }
 .toast { position: fixed; z-index: 11; left: 50%; bottom: calc(100px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: max-content; max-width: calc(100vw - 40px); padding: 10px 15px; border: 1px solid var(--dock-border); border-radius: 8px; background: var(--background); color: var(--text); font-size: 14px; text-align: center; overflow-wrap: anywhere; opacity: 0; pointer-events: none; transition: opacity .15s; }
 .toast.visible { opacity: 1; }
 @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
