@@ -1,4 +1,5 @@
 node_modules/
+.netlify/
 .sites-runtime/
 *.tar.gz
 *.zip
