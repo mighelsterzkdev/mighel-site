@@ -143,7 +143,7 @@ window.addEventListener('pointerdown', event => {
 }, { passive: true });
 window.addEventListener('keydown', event => {
   if (event.key === 'Escape') { stopMusic(); return; }
-  if (event.target.closest('.intro-toggle,.music-toggle')) return;
+  if (event.key === ' ' && event.target.closest('.intro-toggle,.music-toggle')) return;
   if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Tab'].includes(event.key)) stopIntro();
 });
 reducedMotion.addEventListener('change', stopIntro);
