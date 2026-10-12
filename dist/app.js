@@ -5,7 +5,6 @@ function syncTheme() {
   const label = light ? 'Ativar tema escuro' : 'Ativar tema claro';
   themeButton.textContent = light ? 'Escuro' : 'Claro';
   themeButton.setAttribute('aria-label', label);
-  themeButton.dataset.label = label;
   document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
@@ -36,7 +35,6 @@ function syncPlayback() {
   const label = playing ? 'Pausar música' : 'Tocar música';
   musicToggle.setAttribute('aria-pressed', String(playing));
   musicToggle.setAttribute('aria-label', label);
-  musicToggle.dataset.label = label;
 }
 
 function stopMusic() {
@@ -80,3 +78,31 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) stopM
 window.addEventListener('blur', stopMusic);
 window.addEventListener('pagehide', stopMusic);
 syncPlayback();
+
+const navigation = [...document.querySelectorAll('.dock-navigation a')].map(link => ({
+  link, section: document.querySelector(link.getAttribute('href'))
+}));
+function syncNavigation() {
+  let current = navigation[0];
+  const readingLine = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) + 8;
+  for (const item of navigation) {
+    if (item.section.getBoundingClientRect().top <= readingLine) current = item;
+  }
+  for (const item of navigation) {
+    if (item === current) item.link.setAttribute('aria-current', 'location');
+    else item.link.removeAttribute('aria-current');
+  }
+}
+let navigationFrame;
+function scheduleNavigation() {
+  if (navigationFrame) return;
+  navigationFrame = requestAnimationFrame(() => {
+    navigationFrame = 0;
+    syncNavigation();
+  });
+}
+window.addEventListener('scroll', scheduleNavigation, { passive: true });
+window.addEventListener('resize', scheduleNavigation);
+window.addEventListener('pageshow', scheduleNavigation);
+new ResizeObserver(scheduleNavigation).observe(document.querySelector('main'));
+syncNavigation();

@@ -83,6 +83,7 @@
       <section class="content-section" id="redes" aria-labelledby="networks-title">
         <h2 id="networks-title">Redes</h2>
         <ul class="social-list">
+          <li><a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg><span class="social-name">GitHub</span><span class="handle">@mighelsterzkdev</span></a></li>
           <li><a href="https://www.twitch.tv/sterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#twitch"/></svg><span class="social-name">Twitch</span><span class="handle">@sterzk</span></a></li>
           <li><a href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#x"/></svg><span class="social-name">X</span><span class="handle">@MighelSterzk</span></a></li>
           <li><a href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg><span class="social-name">YouTube</span><span class="handle">@MighelSterzk</span></a></li>
@@ -93,12 +94,16 @@
     </main>
   </div>
   <nav class="dock" aria-label="Navegação principal">
-    <a class="dock-link" href="#inicio">Início</a>
-    <a class="dock-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a class="dock-link" href="#redes">Redes</a>
-    <button class="music-toggle dock-link" type="button" aria-label="Tocar música" aria-pressed="false" data-label="Tocar música">Música</button>
-    <span class="dock-divider" aria-hidden="true"></span>
-    <button class="theme-toggle dock-link" type="button" aria-label="Ativar tema claro" data-label="Ativar tema claro">Claro</button>
+    <div class="dock-navigation">
+      <a href="#inicio" aria-current="location">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#setup">Setup</a>
+      <a href="#redes">Redes</a>
+    </div>
+    <div class="dock-actions" role="group" aria-label="Preferências">
+      <button class="music-toggle" type="button" aria-label="Tocar música" aria-pressed="false">Música</button>
+      <button class="theme-toggle" type="button" aria-label="Ativar tema claro">Claro</button>
+    </div>
   </nav>
   <audio id="site-music" src="assets/gymnopedie-no1.mp3" preload="none" loop></audio>
   <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
