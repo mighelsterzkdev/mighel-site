@@ -3,8 +3,8 @@ const themeButton = document.querySelector('.theme-toggle');
 function syncTheme() {
   const light = root.dataset.theme === 'light';
   const label = light ? 'Ativar tema escuro' : 'Ativar tema claro';
-  themeButton.textContent = light ? 'Escuro' : 'Claro';
   themeButton.setAttribute('aria-label', label);
+  themeButton.title = label;
   document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
@@ -35,6 +35,7 @@ function syncPlayback() {
   const label = playing ? 'Pausar música' : 'Tocar música';
   musicToggle.setAttribute('aria-pressed', String(playing));
   musicToggle.setAttribute('aria-label', label);
+  musicToggle.title = label;
 }
 
 function stopMusic() {
@@ -79,10 +80,12 @@ window.addEventListener('blur', stopMusic);
 window.addEventListener('pagehide', stopMusic);
 syncPlayback();
 
-const navigation = [...document.querySelectorAll('.dock-navigation a')].map(link => ({
+const navigation = [...document.querySelectorAll('.section-links a')].map(link => ({
   link, section: document.querySelector(link.getAttribute('href'))
 }));
+const header = document.querySelector('.site-header');
 function syncNavigation() {
+  header.dataset.scrolled = String(window.scrollY > 12);
   let current = navigation[0];
   const readingLine = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) + 8;
   for (const item of navigation) {
