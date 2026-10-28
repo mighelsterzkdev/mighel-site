@@ -8,7 +8,8 @@
   <meta property="og:title" content="Mighel Sterzk">
   <meta property="og:description" content="Lua, Python, meus projetos, setup e redes.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mighel-sterzk.netlify.app">
+  <meta property="og:url" content="https://mighel-sterzk.mysticsage3.chatgpt.site">
+  <link rel="canonical" href="https://mighel-sterzk.mysticsage3.chatgpt.site/">
   <title>Mighel Sterzk</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
@@ -51,14 +52,14 @@
       </section>
       <section class="content-section about" id="about" aria-labelledby="about-title">
         <h2 id="about-title">Sobre mim</h2>
-        <p>Meu foco atual é o Phantom Menu para FiveM, em que trabalho na interface, nos atalhos e na personalização do menu. Também desenvolvo projetos em Python.</p>
+        <p>Desenvolvo o Phantom Menu para FiveM e aplicativos para Windows, como o Media Toolkit e o Clearspace. Gosto de trabalhar na interface e nos detalhes que deixam esses projetos mais fáceis de usar.</p>
       </section>
       <section class="content-section" id="projetos" aria-labelledby="projects-title">
         <h2 id="projects-title">Meus projetos</h2>
         <div class="projects-grid">
           <article class="project" aria-labelledby="phantom-title">
             <h3 id="phantom-title">Phantom Menu</h3>
-            <p>Menu para FiveM desenvolvido em Lua, com interface própria, atalhos configuráveis e opções de personalização.</p>
+            <p>Menu para FiveM desenvolvido em Lua, com interface própria, atalhos configuráveis e previews 3D de jogadores e veículos. Também permite salvar configurações, roupas e locais.</p>
             <ul class="tags" aria-label="Tecnologia e plataforma do Phantom Menu"><li>Lua</li><li>FiveM</li></ul>
             <div class="project-video">
               <img src="https://i.ytimg.com/vi/1vv8ymXMsBQ/hq720.jpg" alt="Miniatura do vídeo do Phantom Menu" width="1280" height="720" loading="lazy" decoding="async">
@@ -68,11 +69,11 @@
               <a class="link-pill" href="https://www.youtube.com/watch?v=1vv8ymXMsBQ" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg>Ver demonstração</a>
             </div>
           </article>
-          <article class="project" lang="en" aria-labelledby="media-toolkit-title">
+          <article class="project" aria-labelledby="media-toolkit-title">
             <h3 id="media-toolkit-title">Media Toolkit</h3>
-            <p>A desktop app for downloading media and converting images, audio, video and animations across 23 output formats. Includes a shared task queue, cancellation, and resumable downloads.</p>
-            <ul class="tags" aria-label="Media Toolkit technologies"><li>Python</li><li>React</li><li>FFmpeg</li><li>Pillow</li></ul>
-            <div class="project-terminal" role="region" aria-label="Example Media Toolkit terminal session">
+            <p>Aplicativo para Windows com ferramentas de download e conversão de imagens, áudio, vídeo e animações. Tem fila de tarefas salva, cancelamento e retomada de downloads compatíveis. O modo pelo terminal também continua disponível.</p>
+            <ul class="tags" aria-label="Tecnologias do Media Toolkit"><li>Python</li><li>React</li><li>FFmpeg</li><li>Pillow</li></ul>
+            <div class="project-terminal" role="region" aria-label="Exemplo do Media Toolkit pelo terminal">
               <div class="terminal-heading"><span>Media Toolkit</span><span>CLI</span></div>
               <pre><code><span class="terminal-muted">$</span> unidown &lt;video-url&gt; --type audio --convert mp3
 
@@ -83,9 +84,14 @@ Done! File saved to:
 <span class="terminal-muted">downloads/My video [id].mp3</span></code></pre>
             </div>
             <div class="project-links">
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Source code</a>
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit#desktop-app" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Getting started</a>
+              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código no GitHub</a>
+              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit#desktop-app" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Como usar</a>
             </div>
+          </article>
+          <article class="project" aria-labelledby="clearspace-title">
+            <h3 id="clearspace-title">Clearspace</h3>
+            <p>Aplicativo para Windows que analisa arquivos temporários, caches e históricos. Você escolhe as categorias, confere a prévia e confirma o que quer limpar, com um resumo no final.</p>
+            <ul class="tags" aria-label="Tecnologias do Clearspace"><li>Python</li><li>React</li><li>Windows</li></ul>
           </article>
         </div>
         <a class="github-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">
