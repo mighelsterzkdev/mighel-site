@@ -111,7 +111,14 @@ dd { margin: 0; }
 .section-links a:focus-visible { outline-offset: 2px; border-radius: 9px; }
 .site-actions { justify-self: end; display: flex; align-items: center; gap: 2px; }
 .site-actions button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 10px; background: transparent; color: var(--control-icon); cursor: pointer; transition: background .15s, color .15s; -webkit-tap-highlight-color: transparent; }
-.site-actions svg { width: 18px; height: 18px; fill: currentColor; stroke: none; }
+.site-actions svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.music-bars, .music-toggle[aria-pressed=true] .music-note { display: none; }
+.music-toggle[aria-pressed=true] .music-bars { display: block; }
+.music-bars path { transform-box: fill-box; transform-origin: center; animation: equalize 1s ease-in-out infinite alternate; }
+.music-bars path:nth-child(2) { animation-delay: -.35s; }
+.music-bars path:nth-child(3) { animation-delay: -.7s; }
+.music-bars path:nth-child(4) { animation-delay: -.15s; }
+@keyframes equalize { from { transform: scaleY(.45); } to { transform: scaleY(1); } }
 .site-actions button[aria-pressed=true] { background: var(--nav-active); color: var(--text); }
 .site-actions button[aria-busy=true] { opacity: .55; }
 .site-actions button:active { background: var(--nav-active); color: var(--text); }
@@ -170,4 +177,4 @@ dd { margin: 0; }
   .section-links a { padding-inline: 7px; font-size: 13px; }
   .site-actions button { width: 32px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .page { animation: none; } .site-navigation, .section-links a, .site-actions button, .toast, .project-video img, .play-badge { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .page { animation: none; } .site-navigation, .section-links a, .site-actions button, .toast, .project-video img, .play-badge { transition: none; } .music-bars path { animation: none; } }
