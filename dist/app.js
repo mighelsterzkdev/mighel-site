@@ -91,6 +91,7 @@ function syncNavigation() {
   for (const item of navigation) {
     if (item.section.getBoundingClientRect().top <= readingLine) current = item;
   }
+  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) current = navigation.at(-1);
   for (const item of navigation) {
     if (item === current) item.link.setAttribute('aria-current', 'location');
     else item.link.removeAttribute('aria-current');
