@@ -39,7 +39,7 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .video-play:focus-visible { outline: 2px solid var(--text); outline-offset: -4px; border-radius: 12px; }
 .play-badge { position: absolute; inset: 0; display: grid; place-items: center; width: 68px; height: 68px; margin: auto; border: 1px solid #ffffff33; border-radius: 50%; background: #000000a6; box-shadow: 0 10px 30px #00000080; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: transform .2s, background .2s; }
 .play-badge svg { width: 28px; height: 28px; margin-left: 3px; fill: #ffffff; }
-.project-shot { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #0a0a0b; box-shadow: 0 24px 48px -28px #000000cc; }
+.project-shot { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #0a0a0a; box-shadow: 0 24px 48px -28px #000000cc; }
 .project-shot img { display: block; width: 100%; height: auto; }
 .project-terminal { min-width: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .terminal-heading { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 20px; color: var(--secondary); font-size: 13px; }
