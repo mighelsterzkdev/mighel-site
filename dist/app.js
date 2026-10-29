@@ -84,6 +84,12 @@ const navigation = [...document.querySelectorAll('.section-links a')].map(link =
   link, section: document.querySelector(link.getAttribute('href'))
 }));
 const header = document.querySelector('.site-header');
+// A section near the end of the page cannot scroll up to the header, so a
+// clicked link stays highlighted until the visitor scrolls on their own.
+let chosen = null;
+for (const item of navigation) item.link.addEventListener('click', () => { chosen = item; scheduleNavigation(); });
+const clearChosen = () => { chosen = null; };
+for (const type of ['wheel', 'touchstart', 'keydown']) window.addEventListener(type, clearChosen, { passive: true });
 function syncNavigation() {
   header.dataset.scrolled = String(window.scrollY > 12);
   let current = null;
@@ -92,6 +98,7 @@ function syncNavigation() {
     if (item.section.getBoundingClientRect().top <= readingLine) current = item;
   }
   if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) current = navigation.at(-1);
+  if (chosen) current = chosen;
   for (const item of navigation) {
     if (item === current) item.link.setAttribute('aria-current', 'location');
     else item.link.removeAttribute('aria-current');
