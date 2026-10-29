@@ -27,8 +27,8 @@
   <a class="skip" href="#main">Pular para o conteúdo</a>
   <header class="site-header" data-scrolled="false">
     <nav class="site-navigation" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Mighel Sterzk, voltar ao início"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-name">Mighel Sterzk</span></a>
       <div class="section-links">
-        <a href="#inicio" aria-current="location">Início</a>
         <a href="#projetos">Projetos</a>
         <a href="#setup">Setup</a>
         <a href="#redes">Redes</a>
@@ -61,8 +61,14 @@
             <h3 id="phantom-title">Phantom Menu</h3>
             <p>Menu para FiveM desenvolvido em Lua, com interface própria, atalhos configuráveis e previews 3D de jogadores e veículos. Também permite salvar configurações, roupas e locais.</p>
             <ul class="tags" aria-label="Tecnologia e plataforma do Phantom Menu"><li>Lua</li><li>FiveM</li></ul>
-            <div class="project-video">
-              <img src="https://i.ytimg.com/vi/1vv8ymXMsBQ/hq720.jpg" alt="Miniatura do vídeo do Phantom Menu" width="1280" height="720" loading="lazy" decoding="async">
+            <div class="project-video" data-video-id="1vv8ymXMsBQ">
+              <button class="video-play" type="button" aria-label="Assistir à demonstração do Phantom Menu">
+                <picture>
+                  <source srcset="https://i.ytimg.com/vi_webp/1vv8ymXMsBQ/maxresdefault.webp" type="image/webp">
+                  <img src="https://i.ytimg.com/vi/1vv8ymXMsBQ/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                </picture>
+                <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span>
+              </button>
             </div>
             <div class="project-links">
               <a class="link-pill" href="https://tdhgaming.com.br/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg>Site do projeto</a>
@@ -73,6 +79,9 @@
             <h3 id="media-toolkit-title">Media Toolkit</h3>
             <p>Aplicativo para Windows com ferramentas de download e conversão de imagens, áudio, vídeo e animações. Tem fila de tarefas salva, cancelamento e retomada de downloads compatíveis. O modo pelo terminal também continua disponível.</p>
             <ul class="tags" aria-label="Tecnologias do Media Toolkit"><li>Python</li><li>React</li><li>FFmpeg</li><li>Pillow</li></ul>
+            <figure class="project-shot">
+              <img src="assets/media-toolkit.webp" alt="Tela de download do Media Toolkit, com o campo de link, a pasta de destino e a fila vazia" width="984" height="721" loading="lazy" decoding="async">
+            </figure>
             <div class="project-terminal" role="region" aria-label="Exemplo do Media Toolkit pelo terminal">
               <div class="terminal-heading"><span>Media Toolkit</span><span>CLI</span></div>
               <pre><code><span class="terminal-muted">$</span> unidown &lt;video-url&gt; --type audio --convert mp3
@@ -92,6 +101,9 @@ Done! File saved to:
             <h3 id="clearspace-title">Clearspace</h3>
             <p>Aplicativo para Windows que analisa arquivos temporários, caches e históricos. Você escolhe as categorias, confere a prévia e confirma o que quer limpar, com um resumo no final.</p>
             <ul class="tags" aria-label="Tecnologias do Clearspace"><li>Python</li><li>React</li><li>Windows</li></ul>
+            <figure class="project-shot">
+              <img src="assets/clearspace.webp" alt="Tela inicial do Clearspace, com as categorias de limpeza do Windows selecionadas e o botão Analisar" width="960" height="690" loading="lazy" decoding="async">
+            </figure>
             <div class="project-links">
               <a class="link-pill" href="https://github.com/mighelsterzkdev/clearspace" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código no GitHub</a>
               <a class="link-pill" href="https://github.com/mighelsterzkdev/clearspace#run" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Como usar</a>

@@ -86,7 +86,7 @@ const navigation = [...document.querySelectorAll('.section-links a')].map(link =
 const header = document.querySelector('.site-header');
 function syncNavigation() {
   header.dataset.scrolled = String(window.scrollY > 12);
-  let current = navigation[0];
+  let current = null;
   const readingLine = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) + 8;
   for (const item of navigation) {
     if (item.section.getBoundingClientRect().top <= readingLine) current = item;
@@ -104,6 +104,20 @@ function scheduleNavigation() {
     syncNavigation();
   });
 }
+for (const video of document.querySelectorAll('.project-video[data-video-id]')) {
+  video.querySelector('.video-play').addEventListener('click', () => {
+    stopMusic();
+    const frame = document.createElement('iframe');
+    frame.src = `https://www.youtube-nocookie.com/embed/${video.dataset.videoId}?autoplay=1&rel=0`;
+    frame.title = 'Demonstração do Phantom Menu';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    video.replaceChildren(frame);
+    frame.focus();
+  }, { once: true });
+}
+
 window.addEventListener('scroll', scheduleNavigation, { passive: true });
 window.addEventListener('resize', scheduleNavigation);
 window.addEventListener('pageshow', scheduleNavigation);
