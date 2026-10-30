@@ -39,8 +39,6 @@ h2 { margin: 0 0 18px; font-size: 23px; line-height: 1.4; letter-spacing: -.03em
 .video-play:focus-visible { outline: 2px solid var(--text); outline-offset: -4px; border-radius: 12px; }
 .play-badge { position: absolute; inset: 0; display: grid; place-items: center; width: 68px; height: 68px; margin: auto; border: 1px solid #ffffff33; border-radius: 50%; background: #000000a6; box-shadow: 0 10px 30px #00000080; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: transform .2s, background .2s; }
 .play-badge svg { width: 28px; height: 28px; margin-left: 3px; fill: #ffffff; }
-.project-shot { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #0a0a0a; box-shadow: 0 24px 48px -28px #000000cc; }
-.project-shot img { display: block; width: 100%; height: auto; }
 .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .link-pill { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 7px 14px; border-radius: 8px; background: var(--link-bg); font-size: 14px; font-weight: 500; }
 .link-pill svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
