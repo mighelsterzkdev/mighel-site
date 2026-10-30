@@ -1,9 +1,9 @@
-/* Quiet and text-first: one 640px column, 16px text with nothing under 13px, greys only.
+/* Quiet and text-first: a label column beside each section, thin dividers, 15px Inter, greys only.
    Spacing steps: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64. Corners stay small (6–8px). */
 :root {
   color-scheme: dark;
-  --background: #000000; --text: #f2f2f2; --secondary: #8f8f8f; --muted: #666666;
-  --line: #1c1c1c; --tile: #111111; --hover: #ffffff0f;
+  --background: #000000; --text: #f2f2f2; --secondary: #a3a3a3; --muted: #7a7a7a;
+  --line: #1f1f1f; --tile: #111111; --hover: #ffffff0f;
   --cell-0: #141414; --cell-1: #2f2f2f; --cell-2: #5a5a5a; --cell-3: #9a9a9a; --cell-4: #ededed;
 }
 :root[data-theme=light] {
@@ -14,7 +14,7 @@
 }
 * { box-sizing: border-box; }
 html { --navigation-offset: 32px; scroll-behavior: smooth; scroll-padding-top: var(--navigation-offset); }
-body { margin: 0; background: var(--background); color: var(--text); font-family: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; line-height: 1.65; }
+body { margin: 0; background: var(--background); color: var(--text); font-family: Inter, 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 15px; line-height: 1.7; font-feature-settings: 'cv11', 'ss01'; -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--text); color: var(--background); }
 a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 4px; }
@@ -24,10 +24,10 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 .skip { position: fixed; left: 16px; top: -80px; z-index: 30; padding: 8px 12px; border-radius: 6px; background: var(--text); color: var(--background); }
 .skip:focus { top: 16px; }
 
-.page { max-width: 688px; margin: 0 auto; padding: 0 24px 48px; animation: appear .35s ease-out; }
+.page { max-width: 848px; margin: 0 auto; padding: 0 24px 48px; animation: appear .35s ease-out; }
 
 /* Header: name on the left, plain links on the right. */
-.site-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-top: 72px; }
+.site-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 64px 0 40px; }
 
 .brand h1 { font-size: 16px; line-height: 1.5; font-weight: 600; letter-spacing: -.01em; }
 .brand p { color: var(--muted); }
@@ -42,16 +42,20 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 .site-actions button[aria-busy=true] { opacity: .55; }
 
 /* Text */
-.intro { display: grid; gap: 16px; padding: 48px 0 0; color: var(--secondary); }
+.intro { color: var(--secondary); }
+.intro .section-body { display: grid; gap: 16px; }
 
 .intro em { color: var(--text); font-style: normal; }
 .intro a, .contact-list a, .activity-heading a { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .15s; }
-.section { padding-top: 64px; }
-h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400; }
+.section { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 0 24px; padding: 40px 0; border-top: 1px solid var(--line); }
+.section-body { min-width: 0; }
+h2 { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.7; padding-top: 1px; }
 
 /* Projects */
-.projects { display: grid; gap: 32px; margin: 0; padding: 0; list-style: none; }
-.project { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 16px; }
+.projects { margin: 0; padding: 0; list-style: none; }
+.project { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 16px; padding: 24px 0; border-top: 1px solid var(--line); }
+.project:first-child { padding-top: 0; border-top: 0; }
+.project:last-child { padding-bottom: 0; }
 .app-icon { display: block; width: 36px; height: 36px; border-radius: 8px; }
 .app-icon-text { display: grid; place-items: center; background: var(--tile); color: var(--secondary); font-size: 13px; font-weight: 600; letter-spacing: .02em; box-shadow: inset 0 0 0 1px var(--line); }
 .project-body { display: grid; gap: 4px; min-width: 0; }
@@ -92,12 +96,13 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 .activity-card noscript p { color: var(--secondary); font-size: 14px; }
 
 /* Contact */
-.contact-list { display: grid; gap: 8px; }
-.contact-list > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; }
+.contact-list { display: grid; }
+.contact-list > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); }
+.contact-list > div:first-child { padding-top: 0; border-top: 0; }
 .contact-list dt { color: var(--muted); }
 .contact-list dd { min-width: 0; overflow-wrap: anywhere; }
 
-.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 
 @media (hover: hover) {
   .site-actions button:hover { color: var(--text); }
@@ -111,14 +116,14 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 
 @media (max-width: 560px) {
   .page { padding-inline: 20px; }
-  .site-header { padding-top: 40px; }
+  .site-header { padding: 40px 0 32px; }
   html { --navigation-offset: 24px; }
   /* One short column: the name and the two controls are enough on a phone. */
   .section-links { display: none; }
   .site-navigation { gap: 8px; }
-  .intro { padding-top: 32px; }
   .brand p { font-size: 14px; }
-  .section { padding-top: 56px; }
+  .section { grid-template-columns: minmax(0, 1fr); padding: 32px 0; }
+  h2 { margin-bottom: 16px; }
   .project { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
   .app-icon { width: 32px; height: 32px; }
   .contact-list > div { grid-template-columns: 88px minmax(0, 1fr); }
