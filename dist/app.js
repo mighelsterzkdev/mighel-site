@@ -2,9 +2,8 @@ const root = document.documentElement;
 const themeButton = document.querySelector('.theme-toggle');
 function syncTheme() {
   const light = root.dataset.theme === 'light';
-  const label = light ? 'Ativar tema escuro' : 'Ativar tema claro';
-  themeButton.setAttribute('aria-label', label);
-  themeButton.title = label;
+  // The button names the theme it switches to.
+  themeButton.textContent = light ? 'Tema escuro' : 'Tema claro';
   document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
@@ -32,10 +31,8 @@ let playRequest = 0;
 
 function syncPlayback() {
   const playing = !music.paused && !music.ended;
-  const label = playing ? 'Pausar música' : 'Tocar música';
+  musicToggle.textContent = playing ? 'Pausar música' : 'Música';
   musicToggle.setAttribute('aria-pressed', String(playing));
-  musicToggle.setAttribute('aria-label', label);
-  musicToggle.title = label;
 }
 
 function stopMusic() {

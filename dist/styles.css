@@ -43,20 +43,10 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 .section-links { display: flex; align-items: center; gap: 20px; }
 .section-links a { color: var(--muted); font-size: 14px; transition: color .15s; }
 .section-links a[aria-current] { color: var(--text); }
-.site-actions { display: flex; align-items: center; gap: 4px; margin: -6px -8px 0 0; }
-.site-actions button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: var(--secondary); cursor: pointer; transition: color .15s, background .15s; }
-.site-actions svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; shape-rendering: geometricPrecision; stroke-linecap: round; stroke-linejoin: round; }
+.site-actions { display: flex; align-items: center; gap: 16px; padding-top: 1px; }
+.site-actions button { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; font-size: 14px; line-height: 1.5; cursor: pointer; transition: color .15s; }
 .site-actions button[aria-pressed=true] { color: var(--text); }
 .site-actions button[aria-busy=true] { opacity: .55; }
-.music-bars, .music-toggle[aria-pressed=true] .music-note { display: none; }
-.music-toggle[aria-pressed=true] .music-bars { display: block; }
-.music-bars path { transform-box: fill-box; transform-origin: center; animation: equalize 1s ease-in-out infinite alternate; }
-.music-bars path:nth-child(2) { animation-delay: -.35s; }
-.music-bars path:nth-child(3) { animation-delay: -.7s; }
-.music-bars path:nth-child(4) { animation-delay: -.15s; }
-@keyframes equalize { from { transform: scaleY(.45); } to { transform: scaleY(1); } }
-.theme-moon, :root[data-theme=light] .theme-sun { display: none; }
-:root[data-theme=light] .theme-moon { display: block; }
 
 /* Text */
 .intro { display: grid; gap: 16px; padding: 48px 0 0; color: var(--secondary); }
@@ -120,8 +110,7 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 
 @media (hover: hover) {
   .section-links a:hover, .site-actions button:hover, .footer-links a:hover { color: var(--text); }
-  .site-actions button:hover { background: var(--hover); }
-  .intro a:hover, .contact-list a:hover, .activity-heading a:hover { text-decoration-color: var(--text); }
+    .intro a:hover, .contact-list a:hover, .activity-heading a:hover { text-decoration-color: var(--text); }
   .project-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .video-play:hover img { filter: brightness(.85); }
   .video-play:hover .play-badge { background: #000000d9; }
@@ -149,5 +138,4 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
   html { scroll-behavior: auto; }
   .page { animation: none; }
   .section-links a, .site-actions button, .site-header, .toast, .project-video img, .play-badge { transition: none; }
-  .music-bars path { animation: none; }
 }
