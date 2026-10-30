@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Mighel Sterzk. Desenvolvo projetos em Lua e Python. Meus projetos, setup e redes.">
+  <meta name="description" content="Mighel Sterzk. Aplicativos para Windows e scripts para FiveM, em Python e Lua: Media Toolkit, Clearspace e Phantom Menu.">
   <meta property="og:title" content="Mighel Sterzk">
-  <meta property="og:description" content="Lua, Python, meus projetos, setup e redes.">
+  <meta property="og:description" content="Aplicativos para Windows e scripts para FiveM, em Python e Lua.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mighelsterzkdev.github.io/mighel-site/">
   <meta property="og:image" content="https://mighelsterzkdev.github.io/mighel-site/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Mighel Sterzk: projetos em Lua e Python">
+  <meta property="og:image:alt" content="Mighel Sterzk: aplicativos para Windows e scripts para FiveM">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://mighelsterzkdev.github.io/mighel-site/">
   <title>Mighel Sterzk</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
   <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v6')==='light'?'light':'dark'}catch{}</script>
-  <script src="app.js?v=6" defer></script>
+  <script src="app.js?v=7" defer></script>
   <script src="github-activity.js?v=4" defer></script>
 </head>
 <body>
@@ -32,11 +32,11 @@
   <a class="skip" href="#main">Pular para o conteúdo</a>
   <header class="site-header" data-scrolled="false">
     <nav class="site-navigation" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Mighel Sterzk, voltar ao início"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="currentColor"/><path d="M17 46V18h6.2L32 31.6 40.8 18H47v28h-6.4V29.2L33.9 39.4h-3.8l-6.7-10.2V46Z" fill="var(--background)"/></svg><span class="brand-name">Mighel Sterzk</span></a>
+      <a class="brand" href="#inicio" aria-label="Mighel Sterzk, voltar ao início">Mighel Sterzk</a>
       <div class="section-links">
         <a href="#projetos">Projetos</a>
-        <a href="#setup">Setup</a>
-        <a href="#redes">Redes</a>
+        <a href="#atividade">Atividade</a>
+        <a href="#contato">Contato</a>
       </div>
       <div class="site-actions" role="group" aria-label="Preferências">
         <button class="music-toggle" type="button" aria-label="Tocar música" aria-pressed="false" title="Tocar música">
@@ -53,20 +53,22 @@
   <div class="page">
     <main id="main">
       <section class="intro" id="inicio" aria-labelledby="name">
+        <p class="eyebrow">Desenvolvedor · Python e Lua</p>
         <h1 id="name">Mighel Sterzk</h1>
-        <p class="intro-description">Desenvolvo projetos em Lua e Python.</p>
-      </section>
-      <section class="content-section about" id="about" aria-labelledby="about-title">
-        <h2 id="about-title">Sobre mim</h2>
-        <p>Desenvolvo o Phantom Menu para FiveM e aplicativos para Windows, como o Media Toolkit e o Clearspace. Gosto de trabalhar na interface e nos detalhes que deixam esses projetos mais fáceis de usar.</p>
+        <p class="intro-description">Faço aplicativos para Windows e scripts para FiveM. Gosto de cuidar da interface e dos detalhes que deixam um programa simples de usar.</p>
+        <div class="intro-links">
+          <a class="button button-primary" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
+          <a class="button" href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#discord"/></svg>Discord</a>
+          <a class="button" href="mailto:sterzkmighel@gmail.com"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>E-mail</a>
+        </div>
       </section>
       <section class="content-section" id="projetos" aria-labelledby="projects-title">
         <h2 id="projects-title">Meus projetos</h2>
         <div class="projects-grid">
-          <article class="project" aria-labelledby="phantom-title">
-            <h3 id="phantom-title">Phantom Menu</h3>
+          <article class="project project-featured" aria-labelledby="phantom-title">
+            <div class="project-heading"><h3 id="phantom-title">Phantom Menu</h3><span class="platform">FiveM</span></div>
             <p>Menu para FiveM desenvolvido em Lua, com interface própria, atalhos configuráveis e previews 3D de jogadores e veículos. Também permite salvar configurações, roupas e locais.</p>
-            <ul class="tags" aria-label="Tecnologia e plataforma do Phantom Menu"><li>Lua</li><li>FiveM</li></ul>
+            <ul class="tags" aria-label="Tecnologia do Phantom Menu"><li>Lua</li></ul>
             <div class="project-video" data-video-id="1vv8ymXMsBQ">
               <button class="video-play" type="button" aria-label="Assistir à demonstração do Phantom Menu">
                 <picture>
@@ -77,43 +79,32 @@
               </button>
             </div>
             <div class="project-links">
-              <a class="link-pill" href="https://tdhgaming.com.br/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg>Site do projeto</a>
-              <a class="link-pill" href="https://www.youtube.com/watch?v=1vv8ymXMsBQ" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg>Ver demonstração</a>
+              <a class="button" href="https://tdhgaming.com.br/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg>Site do projeto</a>
+              <a class="button" href="https://www.youtube.com/watch?v=1vv8ymXMsBQ" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg>Demonstração</a>
             </div>
           </article>
           <article class="project" aria-labelledby="media-toolkit-title">
-            <h3 id="media-toolkit-title">Media Toolkit</h3>
-            <p>Aplicativo para Windows com ferramentas de download e conversão de imagens, áudio, vídeo e animações. Tem fila de tarefas salva, cancelamento e retomada de downloads compatíveis.</p>
-            <ul class="tags" aria-label="Tecnologias do Media Toolkit"><li>Python</li><li>React</li><li>FFmpeg</li><li>Pillow</li></ul>
+            <div class="project-heading"><h3 id="media-toolkit-title">Media Toolkit</h3><span class="platform">Windows</span></div>
+            <p>Baixa vídeos, áudios e imagens de links e converte arquivos entre formatos. Mostra todas as imagens de uma página, tem fila salva e se atualiza sozinho.</p>
+            <ul class="tags" aria-label="Tecnologias do Media Toolkit"><li>Python</li><li>React</li><li>FFmpeg</li></ul>
             <div class="project-links">
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código no GitHub</a>
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/media-toolkit#desktop-app" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Como usar</a>
+              <a class="button button-primary" href="https://github.com/mighelsterzkdev/media-toolkit/releases/latest" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Baixar</a>
+              <a class="button" href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código</a>
             </div>
           </article>
           <article class="project" aria-labelledby="clearspace-title">
-            <h3 id="clearspace-title">Clearspace</h3>
-            <p>Aplicativo para Windows que mantém o PC em dia. Limpa arquivos temporários, caches e históricos com prévia antes de apagar, e tem ferramentas para atualizar programas, testar a conexão, reparar arquivos do Windows e controlar o que inicia com o sistema.</p>
+            <div class="project-heading"><h3 id="clearspace-title">Clearspace</h3><span class="platform">Windows</span></div>
+            <p>Limpa arquivos temporários e caches com prévia antes de apagar, e mantém o PC em dia: atualiza programas, testa a conexão e repara o Windows.</p>
             <ul class="tags" aria-label="Tecnologias do Clearspace"><li>Python</li><li>React</li><li>Windows</li></ul>
             <div class="project-links">
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/clearspace" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código no GitHub</a>
-              <a class="link-pill" href="https://github.com/mighelsterzkdev/clearspace#run" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Como usar</a>
+              <a class="button button-primary" href="https://github.com/mighelsterzkdev/clearspace/releases/latest" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>Baixar</a>
+              <a class="button" href="https://github.com/mighelsterzkdev/clearspace" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Código</a>
             </div>
           </article>
         </div>
-        <a class="github-link" href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">
-          <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
-          <span>Perfil no GitHub</span>
-          <span class="handle">@mighelsterzkdev</span>
-        </a>
+        <a class="more-link" href="https://github.com/mighelsterzkdev?tab=repositories" target="_blank" rel="noopener noreferrer">Todos os repositórios no GitHub ↗</a>
       </section>
-      <section class="content-section" id="tecnologias" aria-labelledby="technologies-title">
-        <h2 id="technologies-title">Tecnologias e ferramentas</h2>
-        <dl class="tools-list">
-          <div><dt>Linguagens</dt><dd><ul class="tool-badges"><li>Lua</li><li>Python</li></ul></dd></div>
-          <div><dt>Ferramentas</dt><dd><ul class="tool-badges"><li>GitHub</li><li>Codex</li><li>Claude</li></ul></dd></div>
-        </dl>
-      </section>
-      <section class="content-section" id="activity" aria-labelledby="activity-title">
+            <section class="content-section" id="atividade" aria-labelledby="activity-title">
         <h2 id="activity-title">Atividade no GitHub</h2>
         <div class="activity-card">
           <div class="activity-heading"><span data-activity-count>Contribuições no GitHub</span><a href="https://github.com/mighelsterzkdev?tab=overview" target="_blank" rel="noopener noreferrer">@mighelsterzkdev ↗</a></div>
@@ -122,16 +113,8 @@
           <noscript><p>Veja as contribuições no <a href="https://github.com/mighelsterzkdev?tab=overview">perfil do GitHub</a>.</p></noscript>
         </div>
       </section>
-      <section class="content-section" id="setup" aria-labelledby="setup-title">
-        <h2 id="setup-title">Setup</h2>
-        <dl class="setup-list">
-          <div><dt>Mouse</dt><dd>Logitech G PRO X3 SUPERSTRIKE <span class="detail">Preto</span></dd></div>
-          <div><dt>Teclado</dt><dd>Attack Shark X68 <span class="detail">Preto</span></dd></div>
-          <div><dt>Headset</dt><dd>MCHOSE V9 Pro <span class="detail">Preto</span></dd></div>
-        </dl>
-      </section>
-      <section class="content-section" id="redes" aria-labelledby="networks-title">
-        <h2 id="networks-title">Redes</h2>
+      <section class="content-section" id="contato" aria-labelledby="networks-title">
+        <h2 id="networks-title">Contato</h2>
         <ul class="social-list">
           <li><a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg><span class="social-name">GitHub</span><span class="handle">@mighelsterzkdev</span></a></li>
           <li><a href="https://www.twitch.tv/sterzk" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#twitch"/></svg><span class="social-name">Twitch</span><span class="handle">@sterzk</span></a></li>

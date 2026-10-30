@@ -1,6 +1,6 @@
 # mighel-site
 
-Site pessoal de Mighel Sterzk: projetos, setup e redes.
+Site pessoal de Mighel Sterzk: projetos, atividade no GitHub e contato.
 
 **Site:** https://mighelsterzkdev.github.io/mighel-site/
 
