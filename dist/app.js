@@ -132,3 +132,35 @@ syncNavigation();
 // On narrow screens the calendar scrolls; start at the most recent weeks.
 const activity = document.querySelector('.activity-scroll');
 if (activity) new MutationObserver(() => { activity.scrollLeft = activity.scrollWidth; }).observe(activity, { childList: true });
+
+// Latest version and date of each app, read from its GitHub releases. Nothing shows if GitHub is unreachable.
+const ago = new Intl.RelativeTimeFormat('pt-BR', { numeric: 'auto' });
+function age(date) {
+  const days = Math.round((Date.now() - date) / 86400000);
+  if (days < 1) return 'hoje';
+  if (days < 30) return ago.format(-days, 'day');
+  if (days < 365) return ago.format(-Math.round(days / 30), 'month');
+  return ago.format(-Math.round(days / 365), 'year');
+}
+for (const label of document.querySelectorAll('[data-release]')) {
+  const repository = label.dataset.release;
+  const cacheKey = `release:${repository}`;
+  const show = release => {
+    const version = /^v?\d+(\.\d+){1,3}$/.test(release.tag) ? release.tag.replace(/^v?/, 'v') : null;
+    const date = Date.parse(release.date);
+    if (!version || !Number.isFinite(date)) return;
+    label.textContent = ` · ${version} · ${age(date)}`;
+    label.title = `Versão publicada em ${new Date(date).toLocaleDateString('pt-BR')}`;
+  };
+  let cached = null;
+  try { cached = JSON.parse(sessionStorage.getItem(cacheKey)); } catch {}
+  if (cached) { show(cached); continue; }
+  fetch(`https://api.github.com/repos/${repository}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' } })
+    .then(response => response.ok ? response.json() : Promise.reject())
+    .then(data => {
+      const release = { tag: String(data.tag_name || ''), date: String(data.published_at || '') };
+      try { sessionStorage.setItem(cacheKey, JSON.stringify(release)); } catch {}
+      show(release);
+    })
+    .catch(() => {});
+}

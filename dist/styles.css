@@ -68,6 +68,7 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 .project-title { display: flex; align-items: baseline; gap: 8px; }
 .project h3 { font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
 .platform { color: var(--muted); font-size: 13px; }
+.release { font-variant-numeric: tabular-nums; }
 .project p { color: var(--secondary); }
 .project-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-top: 4px; font-size: 14px; }
 .project-links a { color: var(--text); font-weight: 500; }
