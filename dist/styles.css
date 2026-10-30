@@ -9,9 +9,9 @@
    Spacing steps: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64. Corners stay small (6–8px). */
 :root {
   color-scheme: dark;
-  --background: #0a0a0a; --text: #ededed; --secondary: #a0a0a0; --muted: #6e6e6e;
-  --line: #1f1f1f; --tile: #161616; --hover: #ffffff0f;
-  --cell-0: #161616; --cell-1: #2f2f2f; --cell-2: #5a5a5a; --cell-3: #9a9a9a; --cell-4: #ededed;
+  --background: #000000; --text: #f2f2f2; --secondary: #8f8f8f; --muted: #666666;
+  --line: #1c1c1c; --tile: #111111; --hover: #ffffff0f;
+  --cell-0: #141414; --cell-1: #2f2f2f; --cell-2: #5a5a5a; --cell-3: #9a9a9a; --cell-4: #ededed;
 }
 :root[data-theme=light] {
   color-scheme: light;
@@ -20,7 +20,7 @@
   --cell-0: #efefef; --cell-1: #cfcfcf; --cell-2: #a1a1a1; --cell-3: #616161; --cell-4: #171717;
 }
 * { box-sizing: border-box; }
-html { --navigation-offset: 88px; scroll-behavior: smooth; scroll-padding-top: var(--navigation-offset); }
+html { --navigation-offset: 32px; scroll-behavior: smooth; scroll-padding-top: var(--navigation-offset); }
 body { margin: 0; background: var(--background); color: var(--text); font-family: Geist, system-ui, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--text); color: var(--background); }
 a { color: inherit; text-decoration: none; }
@@ -34,11 +34,10 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 .page { max-width: 688px; margin: 0 auto; padding: 0 24px 48px; animation: appear .35s ease-out; }
 
 /* Header: name on the left, plain links on the right. */
-.site-header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 88px; margin: 0 -24px; padding: 0 24px; background: var(--background); box-shadow: 0 1px 0 transparent; transition: box-shadow .2s; }
-.site-header[data-scrolled=true] { box-shadow: 0 1px 0 var(--line); }
-.brand { display: grid; line-height: 1.35; }
-.brand-name { white-space: nowrap; font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
-.brand-role { color: var(--muted); font-size: 14px; }
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+
+.brand { font-size: 15px; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
+
 .site-navigation { display: flex; align-items: center; gap: 16px; }
 .section-links { display: flex; align-items: center; gap: 20px; }
 .section-links a { color: var(--muted); font-size: 14px; transition: color .15s; }
@@ -59,7 +58,11 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 :root[data-theme=light] .theme-moon { display: block; }
 
 /* Text */
-.intro { display: grid; gap: 16px; padding: 40px 0 0; color: var(--secondary); }
+.intro { display: grid; gap: 16px; padding: 56px 0 0; color: var(--secondary); }
+.intro h1 { color: var(--text); font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -.025em; }
+.footer-links { display: flex; gap: 4px; margin-right: -6px; }
+.footer-links a { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; color: var(--muted); transition: color .15s; }
+.footer-links .icon { width: 16px; height: 16px; fill: currentColor; }
 .intro em { color: var(--text); font-style: normal; }
 .intro a, .contact-list a, .activity-heading a { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .15s; }
 .section { padding-top: 64px; }
@@ -112,10 +115,10 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 .contact-list dt { color: var(--muted); }
 .contact-list dd { min-width: 0; overflow-wrap: anywhere; }
 
-.site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 
 @media (hover: hover) {
-  .section-links a:hover, .site-actions button:hover, .site-footer a:hover { color: var(--text); }
+  .section-links a:hover, .site-actions button:hover, .footer-links a:hover { color: var(--text); }
   .site-actions button:hover { background: var(--hover); }
   .intro a:hover, .contact-list a:hover, .activity-heading a:hover { text-decoration-color: var(--text); }
   .project-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -129,13 +132,12 @@ h2 { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 400
 
 @media (max-width: 560px) {
   .page { padding-inline: 20px; }
-  .site-header { height: 72px; margin-inline: -20px; padding-inline: 20px; }
-  html { --navigation-offset: 72px; }
-  .brand-role { display: none; }
+  .site-header { height: 64px; }
+  html { --navigation-offset: 24px; }
   /* One short column: the name and the two controls are enough on a phone. */
   .section-links { display: none; }
   .site-navigation { gap: 8px; }
-  .intro { padding-top: 24px; }
+  .intro { padding-top: 32px; }
   .section { padding-top: 56px; }
   .project { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
   .app-icon { width: 32px; height: 32px; }

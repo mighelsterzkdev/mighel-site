@@ -5,7 +5,7 @@ function syncTheme() {
   const label = light ? 'Ativar tema escuro' : 'Ativar tema claro';
   themeButton.setAttribute('aria-label', label);
   themeButton.title = label;
-  document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#0a0a0a';
+  document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
 themeButton.addEventListener('click', () => {
