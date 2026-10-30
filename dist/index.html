@@ -17,11 +17,10 @@
   <link rel="canonical" href="https://mighelsterzkdev.github.io/mighel-site/">
   <title>Mighel Sterzk</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
-  <link rel="preload" as="font" href="assets/geist.ttf" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=17">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem('mighel-theme-v6')==='light'?'light':'dark'}catch{}</script>
-  <script src="app.js?v=10" defer></script>
-  <script src="github-activity.js?v=4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=18">
+  <script>try{const r=document.documentElement;r.dataset.theme=localStorage.getItem('mighel-theme-v6')==='light'?'light':'dark';const l=localStorage.getItem('mighel-language');r.lang=l==='en'||(!l&&!/^pt/i.test(navigator.language))?'en':'pt-BR'}catch{}</script>
+  <script src="app.js?v=11" defer></script>
+  <script src="github-activity.js?v=5" defer></script>
 </head>
 <body>
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.5-4.1-1.5-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.2-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .2 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/></symbol>
@@ -29,51 +28,51 @@
 <symbol id="x" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-7.6L5.3 22H2.1l8.3-9.5L2.7 2h6.5l4.6 6.9L18.9 2ZM17.9 20h1.7L8.2 3.9H6.4L17.9 20Z"/></symbol>
 <symbol id="youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M23 7a3.2 3.2 0 0 0-2.3-2.3C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.7.5A3.2 3.2 0 0 0 1 7C.5 8.9.5 12 .5 12s0 3.1.5 5a3.2 3.2 0 0 0 2.3 2.3c1.9.5 8.7.5 8.7.5s6.8 0 8.7-.5A3.2 3.2 0 0 0 23 17c.5-1.9.5-5 .5-5s0-3.1-.5-5ZM9.7 15.4V8.6l6 3.4-6 3.4Z"/></symbol>
 <symbol id="discord" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.3 4.4a19.8 19.8 0 0 0-4.9-1.5l-.6 1.2a18.4 18.4 0 0 0-5.6 0l-.6-1.2a19.8 19.8 0 0 0-4.9 1.5C.6 9 .1 13.5.4 17.9a19.8 19.8 0 0 0 6 3l1.2-2a12.4 12.4 0 0 1-1.9-.9l.5-.4a14.2 14.2 0 0 0 11.6 0l.5.4-1.9.9 1.2 2a19.8 19.8 0 0 0 6-3c.4-5.1-.7-9.5-3.3-13.5ZM8 15.1c-1 0-1.8-1-1.8-2.1S7 10.9 8 10.9s1.8.9 1.8 2.1-.8 2.1-1.8 2.1Zm8 0c-1 0-1.8-1-1.8-2.1s.8-2.1 1.8-2.1 1.8.9 1.8 2.1-.8 2.1-1.8 2.1Z"/></symbol></defs></svg>
-  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <a class="skip" href="#main" data-i18n="skip">Pular para o conteúdo</a>
   <div class="page">
     <header class="site-header" id="inicio" data-scrolled="false">
       <div class="brand">
         <h1>Mighel Sterzk</h1>
-        <p>Desenvolvedor</p>
+        <p data-i18n="role">Desenvolvedor</p>
       </div>
       <div class="site-actions" role="group" aria-label="Preferências">
-        <button class="music-toggle" type="button" aria-pressed="false">Música</button>
-        <button class="theme-toggle" type="button">Tema claro</button>
+        <button class="language-toggle" type="button" lang="en">English</button>
+        <button class="theme-toggle" type="button" data-i18n="themeLight">Tema claro</button>
       </div>
     </header>
     <main id="main">
-      <section class="intro" aria-label="Sobre">
-        <p>Faço aplicativos para Windows e scripts para FiveM, em <em>Python</em> e <em>Lua</em>. Gosto de cuidar da interface e dos detalhes que deixam um programa simples de usar.</p>
-        <p>Hoje mantenho o <a href="#media-toolkit-title">Media Toolkit</a>, o <a href="#clearspace-title">Clearspace</a> e o <a href="#phantom-title">Phantom Menu</a>. Todo o código dos apps está no <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      <section class="intro" aria-label="Sobre" data-i18n-label="about">
+        <p data-i18n-html="intro1">Faço aplicativos para Windows e scripts para FiveM, em <em>Python</em> e <em>Lua</em>. Gosto de cuidar da interface e dos detalhes que deixam um programa simples de usar.</p>
+        <p data-i18n-html="intro2">Hoje mantenho o <a href="#media-toolkit-title">Media Toolkit</a>, o <a href="#clearspace-title">Clearspace</a> e o <a href="#phantom-title">Phantom Menu</a>. Todo o código dos apps está no <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       </section>
 
       <section class="section" id="projetos" aria-labelledby="projects-title">
-        <h2 id="projects-title">Projetos</h2>
+        <h2 id="projects-title" data-i18n="projects">Projetos</h2>
         <ul class="projects">
           <li class="project">
             <img class="app-icon" src="assets/media-toolkit-icon.png" alt="" width="36" height="36" loading="lazy" decoding="async">
             <div class="project-body">
               <div class="project-title"><h3 id="media-toolkit-title">Media Toolkit</h3><span class="platform">Windows<span class="release" data-release="mighelsterzkdev/media-toolkit"></span></span></div>
-              <p>Baixa vídeos, áudios e imagens de links e converte arquivos entre formatos. Mostra todas as imagens de uma página e se atualiza sozinho.</p>
-              <p class="project-links"><a href="https://github.com/mighelsterzkdev/media-toolkit/releases/latest" target="_blank" rel="noopener noreferrer">Baixar</a><a href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer">Código</a><span>Python, React, FFmpeg</span></p>
+              <p data-i18n="mediaToolkit">Baixa vídeos, áudios e imagens de links e converte arquivos entre formatos. Mostra todas as imagens de uma página e se atualiza sozinho.</p>
+              <p class="project-links"><a href="https://github.com/mighelsterzkdev/media-toolkit/releases/latest" target="_blank" rel="noopener noreferrer" data-i18n="download">Baixar</a><a href="https://github.com/mighelsterzkdev/media-toolkit" target="_blank" rel="noopener noreferrer" data-i18n="code">Código</a><span>Python, React, FFmpeg</span></p>
             </div>
           </li>
           <li class="project">
             <img class="app-icon" src="assets/clearspace-icon.png" alt="" width="36" height="36" loading="lazy" decoding="async">
             <div class="project-body">
               <div class="project-title"><h3 id="clearspace-title">Clearspace</h3><span class="platform">Windows<span class="release" data-release="mighelsterzkdev/clearspace"></span></span></div>
-              <p>Limpa arquivos temporários e caches com prévia antes de apagar, e mantém o PC em dia: atualiza programas, testa a conexão e repara o Windows.</p>
-              <p class="project-links"><a href="https://github.com/mighelsterzkdev/clearspace/releases/latest" target="_blank" rel="noopener noreferrer">Baixar</a><a href="https://github.com/mighelsterzkdev/clearspace" target="_blank" rel="noopener noreferrer">Código</a><span>Python, React</span></p>
+              <p data-i18n="clearspace">Limpa arquivos temporários e caches com prévia antes de apagar, e mantém o PC em dia: atualiza programas, testa a conexão e repara o Windows.</p>
+              <p class="project-links"><a href="https://github.com/mighelsterzkdev/clearspace/releases/latest" target="_blank" rel="noopener noreferrer" data-i18n="download">Baixar</a><a href="https://github.com/mighelsterzkdev/clearspace" target="_blank" rel="noopener noreferrer" data-i18n="code">Código</a><span>Python, React</span></p>
             </div>
           </li>
           <li class="project">
             <span class="app-icon app-icon-text" aria-hidden="true">PM</span>
             <div class="project-body">
               <div class="project-title"><h3 id="phantom-title">Phantom Menu</h3><span class="platform">FiveM</span></div>
-              <p>Menu para FiveM com interface própria, atalhos configuráveis e previews 3D de jogadores e veículos. Salva configurações, roupas e locais.</p>
-              <p class="project-links"><a href="https://tdhgaming.com.br/" target="_blank" rel="noopener noreferrer">Site do projeto</a><a href="https://www.youtube.com/watch?v=1vv8ymXMsBQ" target="_blank" rel="noopener noreferrer">YouTube</a><span>Lua</span></p>
+              <p data-i18n="phantom">Menu para FiveM com interface própria, atalhos configuráveis e previews 3D de jogadores e veículos. Salva configurações, roupas e locais.</p>
+              <p class="project-links"><a href="https://tdhgaming.com.br/" target="_blank" rel="noopener noreferrer" data-i18n="projectSite">Site do projeto</a><a href="https://www.youtube.com/watch?v=1vv8ymXMsBQ" target="_blank" rel="noopener noreferrer">YouTube</a><span>Lua</span></p>
               <div class="project-video" data-video-id="1vv8ymXMsBQ">
-                <button class="video-play" type="button" aria-label="Assistir à demonstração do Phantom Menu">
+                <button class="video-play" type="button" aria-label="Assistir à demonstração do Phantom Menu" data-i18n-label="watchDemo">
                   <picture>
                     <source srcset="https://i.ytimg.com/vi_webp/1vv8ymXMsBQ/maxresdefault.webp" type="image/webp">
                     <img src="https://i.ytimg.com/vi/1vv8ymXMsBQ/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
@@ -87,20 +86,20 @@
       </section>
 
       <section class="section" id="atividade" aria-labelledby="activity-title">
-        <h2 id="activity-title">Atividade</h2>
+        <h2 id="activity-title" data-i18n="activity">Atividade</h2>
         <div class="activity-card">
           <div class="activity-heading"><span data-activity-count>Contribuições no GitHub</span><a href="https://github.com/mighelsterzkdev?tab=overview" target="_blank" rel="noopener noreferrer">@mighelsterzkdev</a></div>
-          <div class="activity-scroll" tabindex="0" role="region" aria-label="Calendário de contribuições do GitHub. Role horizontalmente para ver todos os meses."></div>
-          <div class="activity-footer"><span data-activity-updated></span><div class="activity-legend" aria-label="Intensidade das contribuições, de menos para mais"><span>Menos</span><i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i><span>Mais</span></div></div>
+          <div class="activity-scroll" tabindex="0" role="region" aria-label="Calendário de contribuições do GitHub. Role horizontalmente para ver todos os meses." data-i18n-label="calendar"></div>
+          <div class="activity-footer"><span data-activity-updated></span><div class="activity-legend" aria-label="Intensidade das contribuições, de menos para mais" data-i18n-label="legend"><span data-i18n="less">Menos</span><i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i><span data-i18n="more">Mais</span></div></div>
           <noscript><p>Veja as contribuições no <a href="https://github.com/mighelsterzkdev?tab=overview">perfil do GitHub</a>.</p></noscript>
         </div>
       </section>
 
       <section class="section" id="contato" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contato</h2>
+        <h2 id="contact-title" data-i18n="contact">Contato</h2>
         <dl class="contact-list">
           <div><dt>E-mail</dt><dd><a href="mailto:sterzkmighel@gmail.com">sterzkmighel@gmail.com</a></dd></div>
-          <div><dt>Discord</dt><dd><a href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer">Entrar no servidor</a></dd></div>
+          <div><dt>Discord</dt><dd><a href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer" data-i18n="joinServer">Entrar no servidor</a></dd></div>
           <div><dt>GitHub</dt><dd><a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">@mighelsterzkdev</a></dd></div>
           <div><dt>X</dt><dd><a href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer">@MighelSterzk</a></dd></div>
           <div><dt>YouTube</dt><dd><a href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer">@MighelSterzk</a></dd></div>
@@ -110,15 +109,7 @@
     </main>
     <footer class="site-footer">
       <span>© 2026 Mighel Sterzk</span>
-      <span class="footer-links">
-        <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#github"/></svg></a>
-        <a href="https://x.com/MighelSterzk" target="_blank" rel="noopener noreferrer" aria-label="X"><svg class="icon" aria-hidden="true"><use href="#x"/></svg></a>
-        <a href="https://www.youtube.com/@MighelSterzk" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#youtube"/></svg></a>
-        <a href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer" aria-label="Discord"><svg class="icon" aria-hidden="true"><use href="#discord"/></svg></a>
-      </span>
     </footer>
   </div>
-  <audio id="site-music" src="assets/gymnopedie-no1.mp3" preload="none" loop></audio>
-  <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

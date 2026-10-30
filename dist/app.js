@@ -1,9 +1,56 @@
 const root = document.documentElement;
+const english = () => root.lang === 'en';
+
+// English text by key; Portuguese stays in the HTML and is read once at start.
+const translations = {
+  skip: 'Skip to content',
+  role: 'Developer',
+  about: 'About',
+  intro1: 'I build Windows apps and FiveM scripts in <em>Python</em> and <em>Lua</em>. I care about the interface and the small details that make a program easy to use.',
+  intro2: 'Right now I maintain <a href="#media-toolkit-title">Media Toolkit</a>, <a href="#clearspace-title">Clearspace</a> and <a href="#phantom-title">Phantom Menu</a>. All the apps’ code is on <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>.',
+  projects: 'Projects',
+  mediaToolkit: 'Downloads videos, audio and images from links and converts files between formats. Shows every image on a page and updates itself.',
+  clearspace: 'Cleans temporary files and caches with a preview before deleting, and keeps the PC in shape: updates programs, tests the connection and repairs Windows.',
+  phantom: 'FiveM menu with its own interface, configurable shortcuts and 3D previews of players and vehicles. Saves settings, outfits and locations.',
+  download: 'Download',
+  code: 'Code',
+  projectSite: 'Project site',
+  watchDemo: 'Watch the Phantom Menu demo',
+  activity: 'Activity',
+  calendar: 'GitHub contribution calendar. Scroll sideways to see every month.',
+  legend: 'Contribution intensity, from less to more',
+  less: 'Less',
+  more: 'More',
+  contact: 'Contact',
+  joinServer: 'Join the server',
+  themeLight: 'Light theme',
+  themeDark: 'Dark theme',
+};
+const portuguese = { themeLight: 'Tema claro', themeDark: 'Tema escuro' };
+for (const element of document.querySelectorAll('[data-i18n]')) portuguese[element.dataset.i18n] ??= element.textContent;
+for (const element of document.querySelectorAll('[data-i18n-html]')) portuguese[element.dataset.i18nHtml] = element.innerHTML;
+for (const element of document.querySelectorAll('[data-i18n-label]')) portuguese[element.dataset.i18nLabel] = element.getAttribute('aria-label');
+const text = key => (english() ? translations : portuguese)[key];
+
 const themeButton = document.querySelector('.theme-toggle');
+const languageButton = document.querySelector('.language-toggle');
+
+function applyLanguage() {
+  for (const element of document.querySelectorAll('[data-i18n]')) element.textContent = text(element.dataset.i18n);
+  for (const element of document.querySelectorAll('[data-i18n-html]')) element.innerHTML = text(element.dataset.i18nHtml);
+  for (const element of document.querySelectorAll('[data-i18n-label]')) element.setAttribute('aria-label', text(element.dataset.i18nLabel));
+  // The button names the language it switches to, written in that language.
+  languageButton.textContent = english() ? 'Português' : 'English';
+  languageButton.lang = english() ? 'pt-BR' : 'en';
+  syncTheme();
+  showReleases();
+  window.dispatchEvent(new Event('site-language'));
+}
+
 function syncTheme() {
   const light = root.dataset.theme === 'light';
   // The button names the theme it switches to.
-  themeButton.textContent = light ? 'Tema escuro' : 'Tema claro';
+  themeButton.textContent = text(light ? 'themeDark' : 'themeLight');
   document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
@@ -12,109 +59,17 @@ themeButton.addEventListener('click', () => {
   try { localStorage.setItem('mighel-theme-v6', root.dataset.theme); } catch {}
   syncTheme();
 });
-syncTheme();
-
-const status = document.querySelector('.toast');
-let statusTimer;
-function notify(message) {
-  clearTimeout(statusTimer);
-  status.textContent = message;
-  status.classList.add('visible');
-  statusTimer = setTimeout(() => status.classList.remove('visible'), 3500);
-}
-
-const music = document.querySelector('#site-music');
-const musicToggle = document.querySelector('.music-toggle');
-music.volume = .3;
-let pendingPlay = false;
-let playRequest = 0;
-
-function syncPlayback() {
-  const playing = !music.paused && !music.ended;
-  musicToggle.textContent = playing ? 'Pausar música' : 'Música';
-  musicToggle.setAttribute('aria-pressed', String(playing));
-}
-
-function stopMusic() {
-  playRequest++;
-  pendingPlay = false;
-  musicToggle.removeAttribute('aria-busy');
-  music.pause();
-  syncPlayback();
-}
-
-async function playMusic() {
-  const request = ++playRequest;
-  pendingPlay = true;
-  musicToggle.setAttribute('aria-busy', 'true');
-  try {
-    await music.play();
-  } catch {
-    if (request === playRequest) notify('Não foi possível tocar a música. Tente novamente.');
-  } finally {
-    if (request === playRequest) {
-      pendingPlay = false;
-      musicToggle.removeAttribute('aria-busy');
-      syncPlayback();
-    }
-  }
-}
-
-musicToggle.addEventListener('click', () => {
-  if (!music.paused || pendingPlay) stopMusic();
-  else playMusic();
+languageButton.addEventListener('click', () => {
+  root.lang = english() ? 'pt-BR' : 'en';
+  try { localStorage.setItem('mighel-language', english() ? 'en' : 'pt'); } catch {}
+  applyLanguage();
 });
-music.addEventListener('play', syncPlayback);
-music.addEventListener('pause', syncPlayback);
-music.addEventListener('ended', syncPlayback);
-music.addEventListener('error', () => {
-  stopMusic();
-  notify('Não foi possível carregar a música. Tente novamente.');
-});
-window.addEventListener('keydown', event => { if (event.key === 'Escape') stopMusic(); });
-document.addEventListener('visibilitychange', () => { if (document.hidden) stopMusic(); });
-window.addEventListener('blur', stopMusic);
-window.addEventListener('pagehide', stopMusic);
-syncPlayback();
 
-const navigation = [...document.querySelectorAll('.section-links a')].map(link => ({
-  link, section: document.querySelector(link.getAttribute('href'))
-}));
-const header = document.querySelector('.site-header');
-// A section near the end of the page cannot scroll up to the header, so a
-// clicked link stays highlighted until the visitor scrolls on their own.
-let chosen = null;
-for (const item of navigation) item.link.addEventListener('click', () => { chosen = item; scheduleNavigation(); });
-const clearChosen = () => { chosen = null; };
-for (const type of ['wheel', 'touchstart', 'keydown']) window.addEventListener(type, clearChosen, { passive: true });
-function syncNavigation() {
-  header.dataset.scrolled = String(window.scrollY > 12);
-  let current = null;
-  const readingLine = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) + 8;
-  for (const item of navigation) {
-    if (item.section.getBoundingClientRect().top <= readingLine) current = item;
-  }
-  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) current = navigation.at(-1);
-  if (chosen) current = chosen;
-  for (const item of navigation) {
-    if (item === current) item.link.setAttribute('aria-current', 'location');
-    else item.link.removeAttribute('aria-current');
-  }
-}
-let navigationFrame;
-function scheduleNavigation() {
-  if (navigationFrame) return;
-  navigationFrame = requestAnimationFrame(() => {
-    navigationFrame = 0;
-    syncNavigation();
-  });
-}
 for (const video of document.querySelectorAll('.project-video[data-video-id]')) {
   video.querySelector('.video-play').addEventListener('click', () => {
-    stopMusic();
     const frame = document.createElement('iframe');
     frame.src = `https://www.youtube-nocookie.com/embed/${video.dataset.videoId}?autoplay=1&rel=0`;
-    frame.title = 'Demonstração do Phantom Menu';
+    frame.title = english() ? 'Phantom Menu demo' : 'Demonstração do Phantom Menu';
     frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     frame.allowFullscreen = true;
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -123,44 +78,49 @@ for (const video of document.querySelectorAll('.project-video[data-video-id]')) 
   }, { once: true });
 }
 
-window.addEventListener('scroll', scheduleNavigation, { passive: true });
-window.addEventListener('resize', scheduleNavigation);
-window.addEventListener('pageshow', scheduleNavigation);
-new ResizeObserver(scheduleNavigation).observe(document.querySelector('main'));
-syncNavigation();
-
 // On narrow screens the calendar scrolls; start at the most recent weeks.
 const activity = document.querySelector('.activity-scroll');
 if (activity) new MutationObserver(() => { activity.scrollLeft = activity.scrollWidth; }).observe(activity, { childList: true });
 
 // Latest version and date of each app, read from its GitHub releases. Nothing shows if GitHub is unreachable.
-const ago = new Intl.RelativeTimeFormat('pt-BR', { numeric: 'auto' });
+const releases = new Map();
 function age(date) {
+  const relative = new Intl.RelativeTimeFormat(english() ? 'en' : 'pt-BR', { numeric: 'auto' });
   const days = Math.round((Date.now() - date) / 86400000);
-  if (days < 1) return 'hoje';
-  if (days < 30) return ago.format(-days, 'day');
-  if (days < 365) return ago.format(-Math.round(days / 30), 'month');
-  return ago.format(-Math.round(days / 365), 'year');
+  if (days < 1) return english() ? 'today' : 'hoje';
+  if (days < 30) return relative.format(-days, 'day');
+  if (days < 365) return relative.format(-Math.round(days / 30), 'month');
+  return relative.format(-Math.round(days / 365), 'year');
+}
+function showReleases() {
+  for (const label of document.querySelectorAll('[data-release]')) {
+    const release = releases.get(label.dataset.release);
+    if (!release) continue;
+    label.textContent = ` · ${release.version} · ${age(release.date)}`;
+    label.title = `${english() ? 'Released on' : 'Versão publicada em'} ${new Date(release.date).toLocaleDateString(english() ? 'en' : 'pt-BR')}`;
+  }
+}
+function remember(repository, data) {
+  const version = /^v?\d+(\.\d+){1,3}$/.test(data.tag) ? data.tag.replace(/^v?/, 'v') : null;
+  const date = Date.parse(data.date);
+  if (!version || !Number.isFinite(date)) return;
+  releases.set(repository, { version, date });
+  showReleases();
 }
 for (const label of document.querySelectorAll('[data-release]')) {
   const repository = label.dataset.release;
   const cacheKey = `release:${repository}`;
-  const show = release => {
-    const version = /^v?\d+(\.\d+){1,3}$/.test(release.tag) ? release.tag.replace(/^v?/, 'v') : null;
-    const date = Date.parse(release.date);
-    if (!version || !Number.isFinite(date)) return;
-    label.textContent = ` · ${version} · ${age(date)}`;
-    label.title = `Versão publicada em ${new Date(date).toLocaleDateString('pt-BR')}`;
-  };
   let cached = null;
   try { cached = JSON.parse(sessionStorage.getItem(cacheKey)); } catch {}
-  if (cached) { show(cached); continue; }
+  if (cached) { remember(repository, cached); continue; }
   fetch(`https://api.github.com/repos/${repository}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' } })
     .then(response => response.ok ? response.json() : Promise.reject())
     .then(data => {
       const release = { tag: String(data.tag_name || ''), date: String(data.published_at || '') };
       try { sessionStorage.setItem(cacheKey, JSON.stringify(release)); } catch {}
-      show(release);
+      remember(repository, release);
     })
     .catch(() => {});
 }
+
+applyLanguage();
