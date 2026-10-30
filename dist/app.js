@@ -5,7 +5,7 @@ function syncTheme() {
   const label = light ? 'Ativar tema escuro' : 'Ativar tema claro';
   themeButton.setAttribute('aria-label', label);
   themeButton.title = label;
-  document.querySelector('meta[name="theme-color"]').content = light ? '#fafafa' : '#050505';
+  document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#0a0a0a';
 }
 
 themeButton.addEventListener('click', () => {
@@ -131,3 +131,7 @@ window.addEventListener('resize', scheduleNavigation);
 window.addEventListener('pageshow', scheduleNavigation);
 new ResizeObserver(scheduleNavigation).observe(document.querySelector('main'));
 syncNavigation();
+
+// On narrow screens the calendar scrolls; start at the most recent weeks.
+const activity = document.querySelector('.activity-scroll');
+if (activity) new MutationObserver(() => { activity.scrollLeft = activity.scrollWidth; }).observe(activity, { childList: true });
