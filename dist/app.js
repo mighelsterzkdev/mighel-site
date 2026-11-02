@@ -15,7 +15,6 @@ const translations = {
   download: 'Download',
   code: 'Code',
   projectSite: 'Project site',
-  watchDemo: 'Watch the Phantom Menu demo',
   activity: 'Activity',
   calendar: 'GitHub contribution calendar. Scroll sideways to see every month.',
   legend: 'Contribution intensity, from less to more',
@@ -64,19 +63,6 @@ languageButton.addEventListener('click', () => {
   try { localStorage.setItem('mighel-language', english() ? 'en' : 'pt'); } catch {}
   applyLanguage();
 });
-
-for (const video of document.querySelectorAll('.project-video[data-video-id]')) {
-  video.querySelector('.video-play').addEventListener('click', () => {
-    const frame = document.createElement('iframe');
-    frame.src = `https://www.youtube-nocookie.com/embed/${video.dataset.videoId}?autoplay=1&rel=0`;
-    frame.title = english() ? 'Phantom Menu demo' : 'Demonstração do Phantom Menu';
-    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-    frame.allowFullscreen = true;
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    video.replaceChildren(frame);
-    frame.focus();
-  }, { once: true });
-}
 
 // On narrow screens the calendar scrolls; start at the most recent weeks.
 const activity = document.querySelector('.activity-scroll');
