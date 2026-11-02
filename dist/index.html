@@ -20,9 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=23">
+  <link rel="stylesheet" href="styles.css?v=24">
   <script>try{const r=document.documentElement,t=localStorage.getItem('mighel-theme-v6');r.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';const l=localStorage.getItem('mighel-language');r.lang=l==='en'||(!l&&!/^pt/i.test(navigator.language))?'en':'pt-BR'}catch{}</script>
-  <script src="app.js?v=13" defer></script>
+  <script src="app.js?v=14" defer></script>
   <script src="github-activity.js?v=7" defer></script>
 </head>
 <body>
@@ -33,18 +33,28 @@
 <symbol id="discord" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.3 4.4a19.8 19.8 0 0 0-4.9-1.5l-.6 1.2a18.4 18.4 0 0 0-5.6 0l-.6-1.2a19.8 19.8 0 0 0-4.9 1.5C.6 9 .1 13.5.4 17.9a19.8 19.8 0 0 0 6 3l1.2-2a12.4 12.4 0 0 1-1.9-.9l.5-.4a14.2 14.2 0 0 0 11.6 0l.5.4-1.9.9 1.2 2a19.8 19.8 0 0 0 6-3c.4-5.1-.7-9.5-3.3-13.5ZM8 15.1c-1 0-1.8-1-1.8-2.1S7 10.9 8 10.9s1.8.9 1.8 2.1-.8 2.1-1.8 2.1Zm8 0c-1 0-1.8-1-1.8-2.1s.8-2.1 1.8-2.1 1.8.9 1.8 2.1-.8 2.1-1.8 2.1Z"/></symbol></defs></svg>
   <a class="skip" href="#main" data-i18n="skip">Pular para o conteúdo</a>
   <div class="page">
-    <header class="site-header" id="inicio" data-scrolled="false">
+    <header class="site-header" id="inicio">
       <div class="brand">
         <h1>Mighel Sterzk</h1>
-        <p data-i18n="role">Desenvolvedor</p>
+        <p class="role" data-i18n="role">Desenvolvedor</p>
+        <p class="tagline" data-i18n="tagline">Aplicativos para Windows e scripts para FiveM, com interfaces simples de usar.</p>
+        <nav class="section-nav" aria-label="Seções" data-i18n-label="sections">
+          <ul>
+            <li><a href="#sobre"><span class="nav-line" aria-hidden="true"></span><span data-i18n="about">Sobre</span></a></li>
+            <li><a href="#projetos"><span class="nav-line" aria-hidden="true"></span><span data-i18n="projects">Projetos</span></a></li>
+            <li><a href="#atividade"><span class="nav-line" aria-hidden="true"></span><span data-i18n="activity">Atividade</span></a></li>
+            <li><a href="#contato"><span class="nav-line" aria-hidden="true"></span><span data-i18n="contact">Contato</span></a></li>
+          </ul>
+        </nav>
       </div>
       <div class="site-actions" role="group" aria-label="Preferências">
         <button class="language-toggle" type="button" lang="en">English</button>
         <button class="theme-toggle" type="button" data-i18n="themeLight">Tema claro</button>
       </div>
     </header>
+    <div class="content">
     <main id="main">
-      <section class="intro section" aria-labelledby="about-title">
+      <section class="intro section" id="sobre" aria-labelledby="about-title">
         <h2 id="about-title" data-i18n="about">Sobre</h2>
         <div class="section-body">
         <p data-i18n-html="intro1">Faço aplicativos para Windows e scripts para FiveM, em <em>Python</em> e <em>Lua</em>. Gosto de cuidar da interface e dos detalhes que deixam um programa simples de usar.</p>
@@ -116,6 +126,7 @@
     <footer class="site-footer">
       <span>© 2026 Mighel Sterzk</span>
     </footer>
+    </div>
   </div>
 </body>
 </html>

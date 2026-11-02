@@ -5,6 +5,8 @@ const english = () => root.lang === 'en';
 const translations = {
   skip: 'Skip to content',
   role: 'Developer',
+  tagline: 'Windows apps and FiveM scripts, with interfaces that are simple to use.',
+  sections: 'Sections',
   about: 'About',
   intro1: 'I build Windows apps and FiveM scripts in <em>Python</em> and <em>Lua</em>. I care about the interface and the small details that make a program easy to use.',
   intro2: 'Right now I maintain <a href="#media-toolkit-title">Media Toolkit</a>, <a href="#clearspace-title">Clearspace</a> and <a href="#phantom-title">Phantom Menu</a>. All the apps’ code is on <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>.',
@@ -117,6 +119,31 @@ for (const label of document.querySelectorAll('[data-release]')) {
       remember(repository, release);
     })
     .catch(() => {});
+}
+
+// The menu marks the section being read: the last one whose top has passed a third of the window,
+// or the last section once the page is scrolled to the end. A clicked item stays marked until the
+// reader scrolls on their own, since short sections near the end cannot reach the top.
+const navLinks = [...document.querySelectorAll('.section-nav a')];
+const navSections = navLinks.map(link => document.getElementById(link.hash.slice(1)));
+let navFrame = 0;
+let chosen = -1;
+function markSection() {
+  navFrame = 0;
+  let current = chosen;
+  if (current < 0) {
+    current = 0;
+    navSections.forEach((section, index) => { if (section && section.getBoundingClientRect().top <= innerHeight / 3) current = index; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = navSections.length - 1;
+  }
+  navLinks.forEach((link, index) => index === current ? link.setAttribute('aria-current', 'true') : link.removeAttribute('aria-current'));
+}
+if (navLinks.length) {
+  addEventListener('scroll', () => { navFrame ||= requestAnimationFrame(markSection); }, { passive: true });
+  addEventListener('resize', markSection);
+  navLinks.forEach((link, index) => link.addEventListener('click', () => { chosen = index; markSection(); }));
+  for (const type of ['wheel', 'touchmove', 'keydown']) addEventListener(type, () => { if (chosen >= 0) { chosen = -1; markSection(); } }, { passive: true });
+  markSection();
 }
 
 applyLanguage();
