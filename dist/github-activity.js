@@ -48,15 +48,15 @@
     const columns = Math.floor((days.at(-1).time - origin) / (7 * dayMs)) + 1;
     const total = days.reduce((sum, day) => sum + day.count, 0);
     const count = `${total.toLocaleString(text.locale)} ${total === 1 ? text.one : text.many} ${text.year}`;
-    const width = 28 + columns * 11;
+    const width = 32 + columns * 11;
     const svg = svgElement('svg', { viewBox: `0 0 ${width} 100`, width, height: 100, role: 'img', 'aria-label': `${count}. ${text.range(dates.format(days[0].time), dates.format(days.at(-1).time))}` });
     let lastMonthX = -40;
     for (const [index, day] of days.entries()) {
       const date = new Date(day.time);
       const column = Math.floor((day.time - origin) / (7 * dayMs));
-      const x = 28 + column * 11;
+      const x = 32 + column * 11;
       // A month that starts in the last columns has no room for its name.
-      if ((index === 0 || date.getUTCDate() === 1) && x - lastMonthX >= 24 && x + 26 <= width) {
+      if ((index === 0 || date.getUTCDate() === 1) && x - lastMonthX >= 30 && x + 28 <= width) {
         svg.append(svgElement('text', { x, y: 11 }, months.format(date).replace('.', '')));
         lastMonthX = x;
       }

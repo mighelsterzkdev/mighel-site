@@ -53,6 +53,16 @@ function syncTheme() {
   document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
 }
 
+// Until a theme is chosen here, the page follows the system setting.
+const systemLight = matchMedia('(prefers-color-scheme: light)');
+systemLight.addEventListener('change', () => {
+  let saved = null;
+  try { saved = localStorage.getItem('mighel-theme-v6'); } catch {}
+  if (saved === 'light' || saved === 'dark') return;
+  root.dataset.theme = systemLight.matches ? 'light' : 'dark';
+  syncTheme();
+});
+
 themeButton.addEventListener('click', () => {
   root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
   try { localStorage.setItem('mighel-theme-v6', root.dataset.theme); } catch {}
