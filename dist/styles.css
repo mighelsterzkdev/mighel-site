@@ -46,9 +46,11 @@ h1, h2, h3, p, dl, dd { margin: 0; }
 .intro .section-body { display: grid; gap: 16px; }
 
 .intro em { color: var(--text); font-style: normal; }
-.intro a, .contact-list a, .activity-heading a { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .15s; }
+.intro a, .contact-list a, .activity-heading a, .text-link { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .15s; }
 .section { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 0 24px; padding: 40px 0; border-top: 1px solid var(--line); }
 .section-body { min-width: 0; }
+.not-found .section-body { display: grid; gap: 16px; color: var(--secondary); }
+.not-found-title { color: var(--text); font-weight: 500; }
 h2 { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.7; padding-top: 1px; }
 
 /* Projects */
@@ -57,7 +59,6 @@ h2 { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.7; p
 .project:first-child { padding-top: 0; border-top: 0; }
 .project:last-child { padding-bottom: 0; }
 .app-icon { display: block; width: 36px; height: 36px; border-radius: 8px; }
-.app-icon-text { display: grid; place-items: center; background: var(--tile); color: var(--secondary); font-size: 13px; font-weight: 600; letter-spacing: .02em; box-shadow: inset 0 0 0 1px var(--line); }
 .project-body { display: grid; gap: 4px; min-width: 0; }
 .project-title { display: flex; align-items: baseline; gap: 8px; }
 .project h3 { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
@@ -106,7 +107,7 @@ h2 { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.7; p
 
 @media (hover: hover) {
   .site-actions button:hover { color: var(--text); }
-    .intro a:hover, .contact-list a:hover, .activity-heading a:hover { text-decoration-color: var(--text); }
+    .intro a:hover, .contact-list a:hover, .activity-heading a:hover, .text-link:hover { text-decoration-color: var(--text); }
   .project-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .video-play:hover img { filter: brightness(.85); }
   .video-play:hover .play-badge { background: #000000d9; }

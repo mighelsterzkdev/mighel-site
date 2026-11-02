@@ -55,7 +55,8 @@
       const date = new Date(day.time);
       const column = Math.floor((day.time - origin) / (7 * dayMs));
       const x = 28 + column * 11;
-      if ((index === 0 || date.getUTCDate() === 1) && x - lastMonthX >= 24) {
+      // A month that starts in the last columns has no room for its name.
+      if ((index === 0 || date.getUTCDate() === 1) && x - lastMonthX >= 24 && x + 26 <= width) {
         svg.append(svgElement('text', { x, y: 11 }, months.format(date).replace('.', '')));
         lastMonthX = x;
       }
