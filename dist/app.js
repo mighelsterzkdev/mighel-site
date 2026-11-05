@@ -5,14 +5,20 @@ const english = () => root.lang === 'en';
 const translations = {
   skip: 'Skip to content',
   role: 'Developer',
-  tagline: 'Windows apps and FiveM scripts, with interfaces that are simple to use.',
   sections: 'Sections',
+  preferences: 'Preferences',
+  backToTop: 'Back to top',
+  introLead: 'I build Windows apps and FiveM scripts.',
+  introNote: 'I work with Python, Lua and React. I care about the interface and the small details that make software easy to use.',
+  viewMediaToolkit: 'View the Media Toolkit interface',
+  viewClearspace: 'View the Clearspace interface',
+  watchDemo: 'Watch a demo',
+  socialLinks: 'Social links',
+  contactNote: 'You can reach me by <a href="mailto:sterzkmighel@gmail.com">email</a> or on <a href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer">Discord</a>.',
   about: 'About',
-  intro1: 'I build Windows apps and FiveM scripts in <em>Python</em> and <em>Lua</em>. I care about the interface and the small details that make a program easy to use.',
-  intro2: 'Right now I maintain <a href="#media-toolkit-title">Media Toolkit</a>, <a href="#clearspace-title">Clearspace</a> and <a href="#phantom-title">Phantom Menu</a>. All the apps’ code is on <a href="https://github.com/mighelsterzkdev" target="_blank" rel="noopener noreferrer">GitHub</a>.',
   projects: 'Projects',
-  mediaToolkit: 'Downloads videos, audio and images from links and converts files between formats. Shows every image on a page and updates itself.',
-  clearspace: 'Cleans temporary files and caches with a preview before deleting, and keeps the PC in shape: updates programs, tests the connection and repairs Windows.',
+  mediaToolkit: 'Downloads videos, audio and images from links and converts files between formats. With an image gallery and automatic updates.',
+  clearspace: 'Cleans temporary files and caches with a preview before deleting. Also updates programs, tests the connection and repairs Windows.',
   phantom: 'FiveM menu with its own interface, configurable shortcuts and 3D previews of players and vehicles. Saves settings, outfits and locations.',
   download: 'Download',
   code: 'Code',
@@ -23,7 +29,6 @@ const translations = {
   less: 'Less',
   more: 'More',
   contact: 'Contact',
-  joinServer: 'Join the server',
   themeLight: 'Light theme',
   themeDark: 'Dark theme',
 };
@@ -52,7 +57,8 @@ function syncTheme() {
   const light = root.dataset.theme === 'light';
   // The button names the theme it switches to.
   themeButton.textContent = text(light ? 'themeDark' : 'themeLight');
-  document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#000000';
+  themeButton.title = themeButton.textContent;
+  document.querySelector('meta[name="theme-color"]').content = light ? '#fcfcfc' : '#171717';
 }
 
 // Until a theme is chosen here, the page follows the system setting.
@@ -75,6 +81,15 @@ languageButton.addEventListener('click', () => {
   try { localStorage.setItem('mighel-language', english() ? 'en' : 'pt'); } catch {}
   applyLanguage();
 });
+
+// Only load the demo when requested, and stop playback when it is closed.
+for (const demo of document.querySelectorAll('.project-demo')) {
+  const video = demo.querySelector('iframe');
+  demo.addEventListener('toggle', () => {
+    if (demo.open) video.src = video.dataset.src;
+    else video.removeAttribute('src');
+  });
+}
 
 // On narrow screens the calendar scrolls; start at the most recent weeks.
 const activity = document.querySelector('.activity-scroll');
@@ -119,31 +134,6 @@ for (const label of document.querySelectorAll('[data-release]')) {
       remember(repository, release);
     })
     .catch(() => {});
-}
-
-// The menu marks the section being read: the last one whose top has passed a third of the window,
-// or the last section once the page is scrolled to the end. A clicked item stays marked until the
-// reader scrolls on their own, since short sections near the end cannot reach the top.
-const navLinks = [...document.querySelectorAll('.section-nav a')];
-const navSections = navLinks.map(link => document.getElementById(link.hash.slice(1)));
-let navFrame = 0;
-let chosen = -1;
-function markSection() {
-  navFrame = 0;
-  let current = chosen;
-  if (current < 0) {
-    current = 0;
-    navSections.forEach((section, index) => { if (section && section.getBoundingClientRect().top <= innerHeight / 3) current = index; });
-    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = navSections.length - 1;
-  }
-  navLinks.forEach((link, index) => index === current ? link.setAttribute('aria-current', 'true') : link.removeAttribute('aria-current'));
-}
-if (navLinks.length) {
-  addEventListener('scroll', () => { navFrame ||= requestAnimationFrame(markSection); }, { passive: true });
-  addEventListener('resize', markSection);
-  navLinks.forEach((link, index) => link.addEventListener('click', () => { chosen = index; markSection(); }));
-  for (const type of ['wheel', 'touchmove', 'keydown']) addEventListener(type, () => { if (chosen >= 0) { chosen = -1; markSection(); } }, { passive: true });
-  markSection();
 }
 
 applyLanguage();
