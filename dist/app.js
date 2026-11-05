@@ -10,8 +10,6 @@ const translations = {
   backToTop: 'Back to top',
   introLead: 'I build Windows apps and FiveM scripts.',
   introNote: 'I work with Python, Lua and React. I care about the interface and the small details that make software easy to use.',
-  viewMediaToolkit: 'View the Media Toolkit interface',
-  viewClearspace: 'View the Clearspace interface',
   watchDemo: 'Watch a demo',
   socialLinks: 'Social links',
   contactNote: 'You can reach me by <a href="mailto:sterzkmighel@gmail.com">email</a> or on <a href="https://discord.gg/2SbAythsx5" target="_blank" rel="noopener noreferrer">Discord</a>.',
@@ -58,7 +56,7 @@ function syncTheme() {
   // The button names the theme it switches to.
   themeButton.textContent = text(light ? 'themeDark' : 'themeLight');
   themeButton.title = themeButton.textContent;
-  document.querySelector('meta[name="theme-color"]').content = light ? '#fcfcfc' : '#171717';
+  document.querySelector('meta[name="theme-color"]').content = light ? '#ffffff' : '#090909';
 }
 
 // Until a theme is chosen here, the page follows the system setting.

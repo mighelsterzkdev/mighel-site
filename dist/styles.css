@@ -1,15 +1,15 @@
-/* A personal page with a comfortable reading width and the software itself on display. */
+/* A personal page with a comfortable reading width and a concise project list. */
 :root {
   color-scheme: dark;
-  --background: #171717; --text: #e8e8e8; --secondary: #ababab; --muted: #929292;
-  --line: #343434; --tile: #202020; --hover: #292929;
-  --cell-0: #292929; --cell-1: #4c4c4c; --cell-2: #747474; --cell-3: #a6a6a6; --cell-4: #dedede;
+  --background: #090909; --text: #f4f4f4; --secondary: #a1a1a1; --muted: #818181;
+  --line: #252525; --tile: #111111; --hover: #1b1b1b;
+  --cell-0: #191919; --cell-1: #363636; --cell-2: #646464; --cell-3: #999999; --cell-4: #dedede;
 }
 :root[data-theme=light] {
   color-scheme: light;
-  --background: #fcfcfc; --text: #282828; --secondary: #616161; --muted: #707070;
-  --line: #e5e5e5; --tile: #f5f5f5; --hover: #eeeeee;
-  --cell-0: #ededed; --cell-1: #c7c7c7; --cell-2: #979797; --cell-3: #626262; --cell-4: #303030;
+  --background: #ffffff; --text: #171717; --secondary: #525252; --muted: #6b6b6b;
+  --line: #e7e7e7; --tile: #f7f7f7; --hover: #efefef;
+  --cell-0: #eeeeee; --cell-1: #cfcfcf; --cell-2: #a1a1a1; --cell-3: #676767; --cell-4: #303030;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 32px; }
@@ -40,9 +40,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .section { margin-bottom: 64px; }
 h2 { margin-bottom: 28px; font-size: 15px; font-weight: 500; line-height: 1.6; letter-spacing: -.015em; }
 
-/* Real app captures, open space and simple links instead of decorated cards. */
+/* Small app icons, open space and simple text links. */
 .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 32px; margin: 0; padding: 0; list-style: none; }
-.project { display: grid; grid-template-rows: auto 1fr auto; align-content: start; gap: 16px; min-width: 0; }
+.project { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .project-heading { display: flex; align-items: center; gap: 12px; }
 .app-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 7px; }
 .project-title { min-width: 0; }
@@ -54,8 +54,6 @@ h2 { margin-bottom: 28px; font-size: 15px; font-weight: 500; line-height: 1.6; l
 .project-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 16px; width: 100%; margin-top: 10px; font-size: 13px; }
 .project-links a { display: inline-flex; align-items: center; min-height: 36px; }
 .project-tech { flex-basis: 100%; color: var(--muted); font-size: 11px; }
-.project-shot { display: flex; align-items: center; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--line); border-radius: 5px; background: #0a0a0a; cursor: zoom-in; }
-.project-shot img { display: block; width: 100%; height: auto; }
 .project-wide { grid-column: 1 / -1; display: block; padding-top: 4px; }
 .project-wide .project-heading { margin-bottom: 14px; }
 .project-wide .project-body > p { max-width: 620px; }
@@ -122,7 +120,6 @@ h2 { margin-bottom: 28px; font-size: 15px; font-weight: 500; line-height: 1.6; l
   .platform { font-size: 12px; }
   .project-tech { flex-basis: auto; }
   .project-links a { min-height: 44px; }
-  .project-shot { margin-top: 0; }
   .project-wide { padding-top: 0; }
   .section-heading { gap: 4px 12px; }
   .quiet-link { font-size: 11px; }
