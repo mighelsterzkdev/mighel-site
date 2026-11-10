@@ -16,7 +16,6 @@ const translations = {
   about: 'About',
   projects: 'Projects',
   mediaToolkit: 'Downloads videos, audio and images from links and converts files between formats. With an image gallery and automatic updates.',
-  clearspace: 'Cleans temporary files and caches with a preview before deleting. Also updates programs, tests the connection and repairs Windows.',
   phantom: 'FiveM menu with its own interface, configurable shortcuts and 3D previews of players and vehicles. Saves settings, outfits and locations.',
   download: 'Download',
   code: 'Code',
